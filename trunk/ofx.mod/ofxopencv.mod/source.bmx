@@ -47,9 +47,17 @@ Import "../core.mod/libs/rtAudio/include/*.h"
 
 ?win32
 Import "../core.mod/libs/glu/*.h"
-Import "../core.mod/libs/glut/*.h"
+'Import "../core.mod/libs/glut/*.h"
 Import "../core.mod/libs/videoInput/include/*.h"
 Import "../core.mod/libs/quicktime/CIncludes/*.h"
+?linux
+Import "../core.mod/libs/unicap/include/*.h"
+' NOTE : The follow headers should really be looked up via pkg-config....
+'        This is likely to break on a different distro.
+Import "/usr/include/gstreamer-0.10/*.h"
+Import "/usr/include/glib-2.0/*.h"
+Import "/usr/lib/glib-2.0/include/*.h"
+Import "/usr/include/libxml2/*.h"
 ?
 
 Import "ofxOpenCv/libs/opencv/include/*.h"
