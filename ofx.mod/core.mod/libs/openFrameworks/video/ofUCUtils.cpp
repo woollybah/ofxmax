@@ -16,8 +16,8 @@
 // to avoid the warnings
 extern "C"
 {
-#include <avformat.h>
-#include <swscale.h>
+//#include <avformat.h>
+//#include <swscale.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
 }
@@ -298,10 +298,9 @@ void ofUCUtils::set_format(int w, int h) {
 			avpicture_alloc(dst,PIX_FMT_RGB24,d_width,d_height);
 
 			toRGB_convert_ctx = sws_getContext(
-							format.size.width, format.size.height, src_pix_fmt,
+							format.size.width, format.size.height, (PixelFormat)src_pix_fmt,
 							d_width, d_height, PIX_FMT_RGB24,
 							VIDEOGRABBER_RESIZE_FLAGS, NULL, NULL, NULL);
-
 
 			ofLog(OF_LOG_NOTICE,"ofUCUtils: Converting to RGB24 (%i,%i)\n",w,h);
 

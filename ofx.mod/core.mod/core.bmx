@@ -56,6 +56,11 @@ ModuleInfo "LD_OPTS: %PWD%/libs/quicktime/Libraries/qtmlClient.lib"
 ModuleInfo "LD_OPTS: %PWD%/libs/quicktime/Libraries/Rave.lib"
 ModuleInfo "LD_OPTS: %PWD%/libs/quicktime/Libraries/QTSClient.lib"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/dx/lib/"
+?linux
+ModuleInfo "LD_OPTS: -L%PWD%/libs/poco/lib/linux/"
+ModuleInfo "LD_OPTS: -L%PWD%/libs/GLee/lib/linux/"
+ModuleInfo "LD_OPTS: -L%PWD%/libs/rtAudio/lib/linux/"
+ModuleInfo "LD_OPTS: -L%PWD%/libs/unicap/lib"
 ?
 
 Import "graphics.bmx"

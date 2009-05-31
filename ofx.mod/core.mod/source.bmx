@@ -53,6 +53,14 @@ Import "libs/glu/*.h"
 Import "libs/glut/*.h"
 Import "libs/videoInput/include/*.h"
 Import "libs/quicktime/CIncludes/*.h"
+?linux
+Import "libs/unicap/include/*.h"
+' NOTE : The follow headers should really be looked up via pkg-config....
+'        This is likely to break on a different distro.
+Import "/usr/include/gstreamer-0.10/*.h"
+Import "/usr/include/glib-2.0/*.h"
+Import "/usr/lib/glib-2.0/include/*.h"
+Import "/usr/include/libxml2/*.h"
 ?
 
 'Import "libs/openFrameworks/app/ofAppGlutWindow.cpp"
