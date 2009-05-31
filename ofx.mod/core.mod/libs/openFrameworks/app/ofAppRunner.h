@@ -5,7 +5,7 @@
 #include "ofMain.h"
 #include "ofBaseApp.h"
 #include "ofAppBaseWindow.h"
-#include "ofAppGlutWindow.h"
+//#include "ofAppGlutWindow.h"
 
 void 		ofSetupOpenGL(ofAppBaseWindow * windowPtr, int w, int h, int screenMode);	// sets up the opengl context!
 void 		ofSetupOpenGL(int w, int h, int screenMode);	// sets up the opengl context!
