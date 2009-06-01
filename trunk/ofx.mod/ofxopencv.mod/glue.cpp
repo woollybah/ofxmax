@@ -27,6 +27,35 @@
 
 #include "glue.h"
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+MaxofxCvBlobIterator::MaxofxCvBlobIterator(vector<ofxCvBlob> * b)
+{
+	blobs = b;
+	iter = blobs->begin();
+}
+
+MaxofxCvBlobIterator::~MaxofxCvBlobIterator()
+{
+}
+	
+int MaxofxCvBlobIterator::size() {
+	return blobs->size();
+}
+
+int MaxofxCvBlobIterator::hasNext() {
+	return static_cast<int>(iter != blobs->end());
+}
+
+ofxCvBlob * MaxofxCvBlobIterator::next() {
+	if (iter != blobs->end()) {
+		ofxCvBlob * blob = &(*iter);
+		iter++;
+		return blob;
+	} else {
+		return 0;
+	}
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -109,5 +138,61 @@ void bmx_ofx_ofxcvcontourfinder_draw(ofxCvContourFinder * finder, float x, float
 		finder->draw(x, y, w, h);
 	}
 }
+
+MaxofxCvBlobIterator * bmx_ofx_ofxcvcontourfinder_getblobs(ofxCvContourFinder * finder) {
+	return new MaxofxCvBlobIterator(&finder->blobs);
+}
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+int bmx_ofx_ofxfvblobiterator_hasnext(MaxofxCvBlobIterator * iter) {
+	return iter->hasNext();
+}
+
+ofxCvBlob * bmx_ofx_ofxfvblobiterator_next(MaxofxCvBlobIterator * iter) {
+	return iter->next();
+}
+
+int bmx_ofx_ofxfvblobiterator_size(MaxofxCvBlobIterator * iter) {
+	return iter->size();
+}
+
+void bmx_ofx_ofxfvblobiterator_free(MaxofxCvBlobIterator * iter) {
+	delete iter;
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+void bmx_ofx_ofxcvblob_draw(ofxCvBlob * blob, float x, float y) {
+	blob->draw(x, y);
+}
+
+float bmx_ofx_ofxcvblob_getarea(ofxCvBlob * blob) {
+	return blob->area;
+}
+
+float bmx_ofx_ofxcvblob_getlength(ofxCvBlob * blob) {
+	return blob->length;
+}
+
+void bmx_ofx_ofxcvblob_getboundingrect(ofxCvBlob * blob, float * x, float * y, float * w, float * h) {
+	ofRectangle r = blob->boundingRect;
+	*x = r.x;
+	*y = r.y;
+	*w = r.width;
+	*h = r.height;
+}
+
+void bmx_ofx_ofxcvblob_getcentroid(ofxCvBlob * blob, float * x, float * y) {
+	ofPoint c = blob->centroid;
+	*x = c.x;
+	*y = c.y;
+}
+
+int bmx_ofx_ofxcvblob_hole(ofxCvBlob * blob) {
+	return static_cast<int>(blob->hole);
+}
+
 
 

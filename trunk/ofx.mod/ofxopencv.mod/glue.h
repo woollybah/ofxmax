@@ -27,6 +27,8 @@
 
 #include "ofxOpenCv.h"
 
+class MaxofxCvBlobIterator;
+
 extern "C" {
 
 
@@ -50,6 +52,34 @@ extern "C" {
 	int bmx_ofx_ofxcvcontourfinder_findcontours(ofxCvContourFinder * finder, ofxCvGrayscaleImage * input, int minArea, int maxArea,
 		int considered, int findHoles, int useApproximation);
 	void bmx_ofx_ofxcvcontourfinder_draw(ofxCvContourFinder * finder, float x, float y, float w, float h);
+	MaxofxCvBlobIterator * bmx_ofx_ofxcvcontourfinder_getblobs(ofxCvContourFinder * finder);
+
+	int bmx_ofx_ofxfvblobiterator_hasnext(MaxofxCvBlobIterator * iter);
+	ofxCvBlob * bmx_ofx_ofxfvblobiterator_next(MaxofxCvBlobIterator * iter);
+	int bmx_ofx_ofxfvblobiterator_size(MaxofxCvBlobIterator * iter);
+	void bmx_ofx_ofxfvblobiterator_free(MaxofxCvBlobIterator * iter);
+
+	void bmx_ofx_ofxcvblob_draw(ofxCvBlob * blob, float x, float y);
+	float bmx_ofx_ofxcvblob_getarea(ofxCvBlob * blob);
+	float bmx_ofx_ofxcvblob_getlength(ofxCvBlob * blob);
+	void bmx_ofx_ofxcvblob_getboundingrect(ofxCvBlob * blob, float * x, float * y, float * w, float * h);
+	void bmx_ofx_ofxcvblob_getcentroid(ofxCvBlob * blob, float * x, float * y);
+	int bmx_ofx_ofxcvblob_hole(ofxCvBlob * blob);
 
 }
 
+class MaxofxCvBlobIterator
+{
+public:
+
+	MaxofxCvBlobIterator(vector<ofxCvBlob> * b);
+	~MaxofxCvBlobIterator();
+	
+	int size();
+	int hasNext();
+	ofxCvBlob * next();
+
+private:
+	vector<ofxCvBlob> * blobs;
+	vector<ofxCvBlob>::iterator iter;
+};
