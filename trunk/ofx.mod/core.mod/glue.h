@@ -65,6 +65,17 @@ extern "C" {
 	void bmx_of_ofvideograbber_draw(ofVideoGrabber * grab, float x, float y, float w, float h);
 	int bmx_of_ofvideograbber_isframenew(ofVideoGrabber * grab);
 	unsigned char * bmx_of_ofvideograbber_getpixels(ofVideoGrabber * grab);
+	void bmx_of_ofvideograbber_videosettings(ofVideoGrabber * grab);
+	void bmx_of_ofvideograbber_update(ofVideoGrabber * grab);
+	float bmx_of_ofvideograbber_getheight(ofVideoGrabber * grab);
+	float bmx_of_ofvideograbber_getwidth(ofVideoGrabber * grab);
+	void bmx_of_ofvideograbber_setanchorpercent(ofVideoGrabber * grab, float xPct, float yPct);
+	void bmx_of_ofvideograbber_setanchorpoint(ofVideoGrabber * grab, int x, int y);
+	void bmx_of_ofvideograbber_resetanchor(ofVideoGrabber * grab);
+	void bmx_of_ofvideograbber_setusetexture(ofVideoGrabber * grab, int use);
+	void bmx_of_ofvideograbber_setdeviceid(ofVideoGrabber * grab, int deviceID);
+	void bmx_of_ofvideograbber_listdevices(ofVideoGrabber * grab);
+	void bmx_of_ofvideograbber_close(ofVideoGrabber * grab);
 
 	ofTexture * bmx_of_oftexture_new();
 	void bmx_of_oftexture_allocate(ofTexture * texture, int w, int h, int internalGlDataType);

@@ -67,6 +67,7 @@ Import "graphics.bmx"
 Import "apprunner.bmx"
 Import "soundplayer.bmx"
 Import "truetypefont.bmx"
+Import "video.bmx"
 Import "common.bmx"
 
 '
@@ -186,61 +187,6 @@ Type ofBaseApp
 	End Function
 	
 	
-End Type
-
-
-Rem
-bbdoc: 
-End Rem
-Type ofVideoGrabber
-
-	Field videograbberPtr:Byte Ptr
-	
-	Method New()
-		videograbberPtr = bmx_of_ofvideograbber_new()
-	End Method
-	
-	Method initGrabber:Int(w:Int, h:Int, texture:Int = True)
-		Return bmx_of_ofvideograbber_initgrabber(videograbberPtr, w, h, texture)
-	End Method
-	
-	Method setVerbose(verbose:Int)
-		bmx_of_ofvideograbber_setverbose(videograbberPtr, verbose)
-	End Method
-	
-	Method grabFrame()
-		bmx_of_ofvideograbber_grabframe(videograbberPtr)
-	End Method
-	
-	Method draw(x:Float, y:Float, w:Float = 0, h:Float = 0)
-		bmx_of_ofvideograbber_draw(videograbberPtr, x, y, w, h)
-	End Method
-
-	Method isFrameNew:Int()
-		Return bmx_of_ofvideograbber_isframenew(videograbberPtr)
-	End Method
-	
-	Method getPixels:Byte Ptr()
-		Return bmx_of_ofvideograbber_getpixels(videograbberPtr)
-	End Method
-
-End Type
-
-Rem
-bbdoc: 
-End Rem
-Type ofTexture
-
-	Field texturePtr:Byte Ptr
-	
-	Method New()
-		texturePtr = bmx_of_oftexture_new()
-	End Method
-	
-	Method allocate(w:Int, h:Int, internalGlDataType:Int)
-		bmx_of_oftexture_allocate(texturePtr, w, h, internalGlDataType)
-	End Method
-
 End Type
 
 Rem
