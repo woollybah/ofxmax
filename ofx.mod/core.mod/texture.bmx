@@ -27,15 +27,23 @@ SuperStrict
 
 Import "common.bmx"
 
+Rem
+bbdoc: 
+End Rem
 Type ofTexture
 
 	Field texturePtr:Byte Ptr
 	
 	Method New()
-		texturePtr = bmx_ofx_oftexture_new()
+		texturePtr = bmx_of_oftexture_new()
+	End Method
+	
+	Method allocate(w:Int, h:Int, internalGlDataType:Int)
+		bmx_of_oftexture_allocate(texturePtr, w, h, internalGlDataType)
 	End Method
 	
 	Method Delete()
+	' TODO
 	End Method
 
 End Type

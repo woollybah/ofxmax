@@ -223,6 +223,50 @@ unsigned char * bmx_of_ofvideograbber_getpixels(ofVideoGrabber * grab) {
 	return grab->getPixels();
 }
 
+void bmx_of_ofvideograbber_videosettings(ofVideoGrabber * grab) {
+	grab->videoSettings();
+}
+
+void bmx_of_ofvideograbber_update(ofVideoGrabber * grab) {
+	grab->update();
+}
+
+float bmx_of_ofvideograbber_getheight(ofVideoGrabber * grab) {
+	return grab->getHeight();
+}
+
+float bmx_of_ofvideograbber_getwidth(ofVideoGrabber * grab) {
+	return grab->getWidth();
+}
+
+void bmx_of_ofvideograbber_setanchorpercent(ofVideoGrabber * grab, float xPct, float yPct) {
+	grab->setAnchorPercent(xPct, yPct);
+}
+
+void bmx_of_ofvideograbber_setanchorpoint(ofVideoGrabber * grab, int x, int y) {
+	grab->setAnchorPoint(x, y);
+}
+
+void bmx_of_ofvideograbber_resetanchor(ofVideoGrabber * grab) {
+	grab->resetAnchor();
+}
+
+void bmx_of_ofvideograbber_setusetexture(ofVideoGrabber * grab, int use) {
+	grab->setUseTexture(static_cast<bool>(use));
+}
+
+void bmx_of_ofvideograbber_setdeviceid(ofVideoGrabber * grab, int deviceID) {
+	grab->setDeviceID(deviceID);
+}
+
+void bmx_of_ofvideograbber_listdevices(ofVideoGrabber * grab) {
+	grab->listDevices();
+}
+
+void bmx_of_ofvideograbber_close(ofVideoGrabber * grab) {
+	grab->close();
+}
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ofTexture * bmx_of_oftexture_new() {
@@ -277,56 +321,45 @@ void bmx_ofx_ofTriangle(float x1,float y1,float x2,float y2,float x3, float y3) 
 	ofTriangle(x1, y1, x2, y2, x3, y3);
 }
 
-
 void bmx_ofx_ofCircle(float x, float y, float radius) {
 	ofCircle(x, y, radius);
 }
-
 
 void bmx_ofx_ofEllipse(float x, float y, float width, float height) {
 	ofEllipse(x, y, width, height);
 }
 
-
 void bmx_ofx_ofLine(float x1, float y1, float x2, float y2) {
 	ofLine(x1, y1, x2, y2);
 }
-
 
 void bmx_ofx_ofRect(float x1, float y1, float w, float h) {
 	ofRect(x1, y1, w, h);
 }
 
-
 void bmx_ofx_ofSetCircleResolution(int res) {
 	ofSetCircleResolution(res);
 }
-
 
 void bmx_ofx_ofCurve(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3) {
 	ofCurve(x0, y0, x1, y1, x2, y2, x3, y3);
 }
 
-
 void bmx_ofx_ofBezier(float x0, float y0, float x1, float y1, float x2, float y2, float x3, float y3) {
 	ofBezier(x0, y0, x1, y1, x2, y2, x3, y3);
 }
-
 
 void bmx_ofx_ofNoFill() {
 	ofNoFill();
 }
 
-
 void bmx_ofx_ofFill() {
 	ofFill();
 }
 
-
 void bmx_ofx_ofSetLineWidth(float lineWidth) {
 	ofSetLineWidth(lineWidth);
 }
-
 
 void bmx_ofx_ofSetColor(int r, int g, int b, int a) {
 	if (a < 0) {
