@@ -54,7 +54,9 @@ ModuleInfo "LD_OPTS: -L%PWD%/ofxOpenCv/libs/opencv/lib/win32/"
 Import "common.bmx"
 
 
-
+Rem
+bbdoc: 
+End Rem
 Type ofxCvImage
 
 	Field cvImagePtr:Byte Ptr
@@ -163,6 +165,9 @@ Type ofxCvImage
 	
 End Type
 
+Rem
+bbdoc: 
+End Rem
 Type ofxCvColorImage Extends ofxCvImage
 
 	Method New()
@@ -175,7 +180,9 @@ Type ofxCvColorImage Extends ofxCvImage
 
 End Type
 
-
+Rem
+bbdoc: 
+End Rem
 Type ofxCvGrayscaleImage Extends ofxCvImage
 
 	Method New()
@@ -204,25 +211,186 @@ Type ofxCvGrayscaleImage Extends ofxCvImage
 
 End Type
 
-
+Rem
+bbdoc: 
+End Rem
 Type ofxCvContourFinder
 
 	Field contourFinderPtr:Byte Ptr
+	
+	Field iter:ofxCvBlobIterator
 	
 	Method New()
 		contourFinderPtr = bmx_ofx_ofxcvcontourfinder_new()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method findContours:Int(_input:ofxCvGrayscaleImage, minArea:Int, maxArea:Int, considered:Int, findHoles:Int, useApproximation:Int = True)
 		Return bmx_ofx_ofxcvcontourfinder_findcontours(contourFinderPtr, _input.cvImagePtr, minArea, maxArea, considered, ..
 			findHoles, useApproximation)
 	End Method
 	
+	Rem
+	bbdoc: Returns a blob iterator.
+	about: Usually you don't need this, as you can use ofxCvContourFinder with Eachin :
+	<pre>
+	For Local blob:ofxCvBlob = EachIn contourFinder
+	    ...
+	Next
+	</pre>
+	End Rem
+	Method getBlobs:ofxCvBlobIterator()
+		Return ofxCvBlobIterator._create(bmx_ofx_ofxcvcontourfinder_getblobs(contourFinderPtr))
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
 	Method draw(x:Float, y:Float, w:Float = 0.0, h:Float = 0.0)
 		bmx_ofx_ofxcvcontourfinder_draw(contourFinderPtr, x, y, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getHeight:Float()
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getWidth:Float()
+	End Method
+
+	Rem
+	bbdoc: 
+	End Rem
+	Method setAnchorPercent(xPct:Float, yPct:Float)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method setAnchorPoint(x:Int, y:Int)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method resetAnchor()
+	End Method
+
+	Method ObjectEnumerator:ofxCvBlobIterator()
+		If iter Then
+			iter.Free()
+		End If
+		iter = ofxCvBlobIterator._create(bmx_ofx_ofxcvcontourfinder_getblobs(contourFinderPtr))
+		Return iter
+	End Method
 
 End Type
 
+Rem
+bbdoc: 
+End Rem
+Type ofxCvBlobIterator
+
+	Field iterPtr:Byte Ptr
+
+	Function _create:ofxCvBlobIterator(iterPtr:Byte Ptr)
+		If iterPtr Then
+			Local this:ofxCvBlobIterator = New ofxCvBlobIterator
+			this.iterPtr = iterPtr
+			Return this
+		End If
+	End Function
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method size:Int()
+		Return bmx_ofx_ofxfvblobiterator_size(iterPtr)
+	End Method
+	
+	Method HasNext:Int()
+		Return bmx_ofx_ofxfvblobiterator_hasnext(iterPtr)
+	End Method
+
+	Method NextObject:Object()
+		Return ofxCvBlob._create(bmx_ofx_ofxfvblobiterator_next(iterPtr))
+	End Method
+
+	Method Free()
+		If iterPtr Then
+			bmx_ofx_ofxfvblobiterator_free(iterPtr)
+			iterPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
+	End Method
+	
+End Type
+
+Rem
+bbdoc: 
+End Rem
+Type ofxCvBlob
+
+	Field blobPtr:Byte Ptr
+
+	Function _create:ofxCvBlob(blobPtr:Byte Ptr)
+		If blobPtr Then
+			Local this:ofxCvBlob = New ofxCvBlob
+			this.blobPtr = blobPtr
+			Return this
+		End If
+	End Function
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method draw(x:Float = 0, y:Float = 0)
+		bmx_ofx_ofxcvblob_draw(blobPtr, x, y)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getArea:Float()
+		Return bmx_ofx_ofxcvblob_getarea(blobPtr)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getLength:Float()
+		Return bmx_ofx_ofxcvblob_getlength(blobPtr)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getBoundingRect(x:Float Var, y:Float Var, w:Float Var, h:Float Var)
+		bmx_ofx_ofxcvblob_getboundingrect(blobPtr, Varptr x, Varptr y, Varptr w, Varptr h)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getCentroid(x:Float Var, y:Float Var)
+		bmx_ofx_ofxcvblob_getcentroid(blobPtr, Varptr x, Varptr y)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method isHole:Int()
+		Return bmx_ofx_ofxcvblob_hole(blobPtr)
+	End Method
+
+End Type
 

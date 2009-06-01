@@ -93,8 +93,15 @@ Type TTestApp Extends ofBaseApp
 		DrawRect 360,540,320,240
 		
 		' we could draw the whole contour finder
-		contourFinder.draw(360,540)
+		'contourFinder.draw(360,540)
+
+		' or, instead we can draw each blob individually,
+		' this is how to get access to them:
+		For Local blob:ofxCvBlob = EachIn contourFinder
+			blob.draw(360,540)
+		Next
 		
+
 		SetColor 255, 255, 255
 		DrawText "Hello", 10, 10
 	End Method

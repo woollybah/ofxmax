@@ -63,6 +63,19 @@ Extern
 	Function bmx_ofx_ofxcvcontourfinder_findcontours:Int(handle:Byte Ptr, _input:Byte Ptr, minArea:Int, maxArea:Int, ..
 		considered:Int, findHoles:Int, useApproximation:Int)
 	Function bmx_ofx_ofxcvcontourfinder_draw(handle:Byte Ptr, x:Float, y:Float, w:Float, h:Float)
+	Function bmx_ofx_ofxcvcontourfinder_getblobs:Byte Ptr(handle:Byte Ptr)
+
+	Function bmx_ofx_ofxfvblobiterator_hasnext:Int(handle:Byte Ptr)
+	Function bmx_ofx_ofxfvblobiterator_next:Byte Ptr(handle:Byte Ptr)
+	Function bmx_ofx_ofxfvblobiterator_size:Int(handle:Byte Ptr)
+	Function bmx_ofx_ofxfvblobiterator_free(handle:Byte Ptr)
+
+	Function bmx_ofx_ofxcvblob_draw(handle:Byte Ptr, x:Float, y:Float)
+	Function bmx_ofx_ofxcvblob_getarea:Float(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvblob_getlength:Float(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvblob_getboundingrect(handle:Byte Ptr, x:Float Ptr, y:Float Ptr, w:Float Ptr, h:Float Ptr)
+	Function bmx_ofx_ofxcvblob_getcentroid(handle:Byte Ptr, x:Float Ptr, y:Float Ptr)
+	Function bmx_ofx_ofxcvblob_hole:Int(handle:Byte Ptr)
 
 End Extern
 
