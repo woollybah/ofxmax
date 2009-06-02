@@ -256,30 +256,35 @@ Type ofxCvContourFinder
 	bbdoc: 
 	End Rem
 	Method getHeight:Float()
+		Return bmx_ofx_ofxcvcontourfinder_getheight(contourFinderPtr)
 	End Method
 	
 	Rem
 	bbdoc: 
 	End Rem
 	Method getWidth:Float()
+		Return bmx_ofx_ofxcvcontourfinder_getwidth(contourFinderPtr)
 	End Method
 
 	Rem
 	bbdoc: 
 	End Rem
 	Method setAnchorPercent(xPct:Float, yPct:Float)
+		bmx_ofx_ofxcvcontourfinder_setanchorpercent(contourFinderPtr, xPct, yPct)
 	End Method
 	
 	Rem
 	bbdoc: 
 	End Rem
 	Method setAnchorPoint(x:Int, y:Int)
+		bmx_ofx_ofxcvcontourfinder_setanchorpoint(contourFinderPtr, x, y)
 	End Method
 	
 	Rem
 	bbdoc: 
 	End Rem
 	Method resetAnchor()
+		bmx_ofx_ofxcvcontourfinder_resetanchor(contourFinderPtr)
 	End Method
 
 	Method ObjectEnumerator:ofxCvBlobIterator()

@@ -143,6 +143,26 @@ MaxofxCvBlobIterator * bmx_ofx_ofxcvcontourfinder_getblobs(ofxCvContourFinder * 
 	return new MaxofxCvBlobIterator(&finder->blobs);
 }
 
+float bmx_ofx_ofxcvcontourfinder_getheight(ofxCvContourFinder * finder) {
+	return finder->getHeight();
+}
+
+float bmx_ofx_ofxcvcontourfinder_getwidth(ofxCvContourFinder * finder) {
+	return finder->getWidth();
+}
+
+void bmx_ofx_ofxcvcontourfinder_setanchorpercent(ofxCvContourFinder * finder, float xPct, float yPct) {
+	finder->setAnchorPercent(xPct, yPct);
+}
+
+void bmx_ofx_ofxcvcontourfinder_setanchorpoint(ofxCvContourFinder * finder, int x, int y) {
+	finder->setAnchorPoint(x, y);
+}
+
+void bmx_ofx_ofxcvcontourfinder_resetanchor(ofxCvContourFinder * finder) {
+	finder ->resetAnchor();
+}
+
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
