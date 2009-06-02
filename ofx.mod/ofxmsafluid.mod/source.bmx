@@ -1,6 +1,7 @@
 SuperStrict
 
 Import ofx.core
+Import ofx.ofxMSAUtils
 
 ' NOTE : doesn't currently work with BMK...
 ' Include "../core.mod/standardimports.bmx"
@@ -40,9 +41,12 @@ Import "/usr/include/libxml2/*.h"
 ' -----------------------------------------------
 
 Import "src/*.h"
+Import "../ofxmsautils.mod/src/*.h"
 
 Import "src/ofxMSAFluidDrawer.cpp"
 Import "src/ofxMSAFluidSolver.cpp"
+Import "src/ParticleSystem.cpp"
+Import "src/Particle.cpp"
 
 Import "*.h"
 Import "glue.cpp"
