@@ -64,6 +64,11 @@ Extern
 		considered:Int, findHoles:Int, useApproximation:Int)
 	Function bmx_ofx_ofxcvcontourfinder_draw(handle:Byte Ptr, x:Float, y:Float, w:Float, h:Float)
 	Function bmx_ofx_ofxcvcontourfinder_getblobs:Byte Ptr(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvcontourfinder_getheight:Float(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvcontourfinder_getwidth:Float(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvcontourfinder_setanchorpercent(handle:Byte Ptr, xPct:Float, yPct:Float)
+	Function bmx_ofx_ofxcvcontourfinder_setanchorpoint(handle:Byte Ptr, x:Int, y:Int)
+	Function bmx_ofx_ofxcvcontourfinder_resetanchor(handle:Byte Ptr)
 
 	Function bmx_ofx_ofxfvblobiterator_hasnext:Int(handle:Byte Ptr)
 	Function bmx_ofx_ofxfvblobiterator_next:Byte Ptr(handle:Byte Ptr)

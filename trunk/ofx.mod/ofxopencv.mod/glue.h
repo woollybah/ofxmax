@@ -53,6 +53,11 @@ extern "C" {
 		int considered, int findHoles, int useApproximation);
 	void bmx_ofx_ofxcvcontourfinder_draw(ofxCvContourFinder * finder, float x, float y, float w, float h);
 	MaxofxCvBlobIterator * bmx_ofx_ofxcvcontourfinder_getblobs(ofxCvContourFinder * finder);
+	float bmx_ofx_ofxcvcontourfinder_getheight(ofxCvContourFinder * finder);
+	float bmx_ofx_ofxcvcontourfinder_getwidth(ofxCvContourFinder * finder);
+	void bmx_ofx_ofxcvcontourfinder_setanchorpercent(ofxCvContourFinder * finder, float xPct, float yPct);
+	void bmx_ofx_ofxcvcontourfinder_setanchorpoint(ofxCvContourFinder * finder, int x, int y);
+	void bmx_ofx_ofxcvcontourfinder_resetanchor(ofxCvContourFinder * finder);
 
 	int bmx_ofx_ofxfvblobiterator_hasnext(MaxofxCvBlobIterator * iter);
 	ofxCvBlob * bmx_ofx_ofxfvblobiterator_next(MaxofxCvBlobIterator * iter);

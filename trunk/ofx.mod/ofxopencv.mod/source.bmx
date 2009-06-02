@@ -27,6 +27,10 @@ SuperStrict
 
 Import ofx.core
 
+' NOTE : doesn't currently work with BMK...
+' Include "../core.mod/standardimports.bmx"
+
+' -----------------------------------------------
 Import "../../bah.mod/freeimage.mod/src/*.h"
 Import "../../bah.mod/fmod.mod/include/*.h"
 Import "../../pub.mod/freetype.mod/include/*.h"
@@ -47,7 +51,6 @@ Import "../core.mod/libs/rtAudio/include/*.h"
 
 ?win32
 Import "../core.mod/libs/glu/*.h"
-'Import "../core.mod/libs/glut/*.h"
 Import "../core.mod/libs/videoInput/include/*.h"
 Import "../core.mod/libs/quicktime/CIncludes/*.h"
 ?linux
@@ -59,6 +62,7 @@ Import "/usr/include/glib-2.0/*.h"
 Import "/usr/lib/glib-2.0/include/*.h"
 Import "/usr/include/libxml2/*.h"
 ?
+' -----------------------------------------------
 
 Import "ofxOpenCv/libs/opencv/include/*.h"
 Import "ofxOpenCv/libs/opencv/include/*.hpp"
