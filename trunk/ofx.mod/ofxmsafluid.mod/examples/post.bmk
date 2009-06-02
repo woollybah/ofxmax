@@ -1,0 +1,21 @@
+# MacOS post build script
+#
+#
+@define doPostInstall
+
+	# only interested for Mac platform
+	
+	if bmk.Platform() == "macos" then
+
+		local path = utils.ModulePath("bah.fmod") .. "/lib/" .. bmk.Platform() .. "/"
+		local file = "libfmodex.dylib"
+
+		# copy FMOD
+		sys.CopyFile(path .. file, %exepath% .. "/" .. file)
+		
+	end
+
+@end
+
+# run the post install
+doPostInstall

@@ -81,12 +81,12 @@ ofxMSAFluidSolver::ofxMSAFluidSolver()
 ,curl(NULL)
 ,_isInited(false)
 {
-	printf("ofxMSAFluidSolver::ofxMSAFluidSolver()\n");	
+	//printf("ofxMSAFluidSolver::ofxMSAFluidSolver()\n");	
 }
 
 ofxMSAFluidSolver& ofxMSAFluidSolver::setSize(int NX, int NY)
 {
-	printf("ofxMSAFluidSolver::setSize(%i, %i)\n", NX, NY);
+	//printf("ofxMSAFluidSolver::setSize(%i, %i)\n", NX, NY);
 	
 	_NX = NX;
 	_NY = NY;
@@ -109,7 +109,7 @@ ofxMSAFluidSolver& ofxMSAFluidSolver::setSize(int NX, int NY)
 
 ofxMSAFluidSolver& ofxMSAFluidSolver::setup(int NX, int NY)
 {
-	printf("ofxMSAFluidSolver::init(%i, %i)\n", NX, NY);
+	//printf("ofxMSAFluidSolver::init(%i, %i)\n", NX, NY);
 	
 	setDeltaT();
 	setFadeSpeed();
@@ -166,12 +166,12 @@ bool ofxMSAFluidSolver::isInited() {
 }
 
 ofxMSAFluidSolver::~ofxMSAFluidSolver() {
-	printf("ofxMSAFluidSolver::~ofxMSAFluidSolver()\n");
+	//printf("ofxMSAFluidSolver::~ofxMSAFluidSolver()\n");
 	destroy();
 }
 
 void ofxMSAFluidSolver::destroy() {
-	printf("ofxMSAFluidSolver::destroy()\n");
+	//printf("ofxMSAFluidSolver::destroy()\n");
 	_isInited = false;
 	
 	if(r)		delete []r;
@@ -192,7 +192,7 @@ void ofxMSAFluidSolver::destroy() {
 
 
 void ofxMSAFluidSolver::reset() {
-	printf("ofxMSAFluidSolver::reset()\n");	
+	//printf("ofxMSAFluidSolver::reset()\n");	
 	destroy();
 	_isInited = true;
 	
