@@ -65,7 +65,7 @@ ModuleInfo "LD_OPTS: -L%PWD%/libs/unicap/lib"
 
 Import "graphics.bmx"
 Import "apprunner.bmx"
-Import "soundplayer.bmx"
+'Import "soundplayer.bmx"
 Import "truetypefont.bmx"
 Import "video.bmx"
 Import "utils.bmx"
