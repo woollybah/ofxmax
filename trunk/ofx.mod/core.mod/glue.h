@@ -156,6 +156,39 @@ extern "C" {
 	void bmx_ofx_oftruetypefont_loadfont(ofTrueTypeFont * font, BBString * filename, int _fontSize, int antiAliased, int fullCharacterSet, int makeContours);
 	void bmx_ofx_oftruetypefont_drawstring(ofTrueTypeFont * font, BBString * text, float x, float y);
 
+	unsigned char * bmx_of_ofvideoplayer_getpixels(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_close(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_update(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_draw(ofVideoPlayer * player, float x, float y, float w, float h);
+	float bmx_of_ofvideoplayer_getheight(ofVideoPlayer * player);
+	float bmx_of_ofvideoplayer_getwidth(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_setanchorpercent(ofVideoPlayer * player, float xPct, float yPct);
+	void bmx_of_ofvideoplayer_setanchorpoint(ofVideoPlayer * player, int x, int y);
+	void bmx_of_ofvideoplayer_resetanchor(ofVideoPlayer * player);
+	int bmx_of_ofvideoplayer_loadmovie(ofVideoPlayer * player, BBString * name);
+	void bmx_of_ofvideoplayer_closemovie(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_idlemovie(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_play(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_stop(ofVideoPlayer * player);
+	float bmx_of_ofvideoplayer_getspeed(ofVideoPlayer * player);
+	int bmx_of_ofvideoplayer_isloaded(ofVideoPlayer * player);
+	int bmx_of_ofvideoplayer_isframenew(ofVideoPlayer * player);
+	float bmx_of_ofvideoplayer_getposition(ofVideoPlayer * player);
+	float bmx_of_ofvideoplayer_getduration(ofVideoPlayer * player);
+	int bmx_of_ofvideoplayer_getismoviedone(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_setposition(ofVideoPlayer * player, float pct);
+	void bmx_of_ofvideoplayer_setvolume(ofVideoPlayer * player, int volume);
+	void bmx_of_ofvideoplayer_setloopstate(ofVideoPlayer * player, int state);
+	void bmx_of_ofvideoplayer_setspeed(ofVideoPlayer * player, float speed);
+	void bmx_of_ofvideoplayer_setframe(ofVideoPlayer * player, int frame);
+	void bmx_of_ofvideoplayer_setpaused(ofVideoPlayer * player, int pause);
+	int bmx_of_ofvideoplayer_getcurrentframe(ofVideoPlayer * player);
+	int bmx_of_ofvideoplayer_gettotalnumframes(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_firstframe(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_nextframe(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_previousframe(ofVideoPlayer * player);
+
+	
 }
 
 

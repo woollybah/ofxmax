@@ -581,3 +581,136 @@ void bmx_ofx_oftruetypefont_drawstring(ofTrueTypeFont * font, BBString * text, f
 }
 
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+unsigned char * bmx_of_ofvideoplayer_getpixels(ofVideoPlayer * player) {
+	return player->getPixels();
+}
+
+void bmx_of_ofvideoplayer_close(ofVideoPlayer * player) {
+	player->close();
+}
+
+void bmx_of_ofvideoplayer_update(ofVideoPlayer * player) {
+	player->update();
+}
+
+void bmx_of_ofvideoplayer_draw(ofVideoPlayer * player, float x, float y, float w, float h) {
+	if (w == 0 || h == 0) {
+		player->draw(x, y);
+	} else {
+		player->draw(x, y, w, h);
+	}
+}
+
+float bmx_of_ofvideoplayer_getheight(ofVideoPlayer * player) {
+	return player->getHeight();
+}
+
+float bmx_of_ofvideoplayer_getwidth(ofVideoPlayer * player) {
+	return player->getWidth();
+}
+
+void bmx_of_ofvideoplayer_setanchorpercent(ofVideoPlayer * player, float xPct, float yPct) {
+	player->setAnchorPercent(xPct, yPct);
+}
+
+void bmx_of_ofvideoplayer_setanchorpoint(ofVideoPlayer * player, int x, int y) {
+	player->setAnchorPoint(x, y);
+}
+
+void bmx_of_ofvideoplayer_resetanchor(ofVideoPlayer * player) {
+	player->resetAnchor();
+}
+
+int bmx_of_ofvideoplayer_loadmovie(ofVideoPlayer * player, BBString * name) {
+	char * c = bbStringToCString(name);
+	int res = static_cast<int>(player->loadMovie(c));
+	bbMemFree(c);
+	return res;
+}
+
+void bmx_of_ofvideoplayer_closemovie(ofVideoPlayer * player) {
+	player->closeMovie();
+}
+
+void bmx_of_ofvideoplayer_idlemovie(ofVideoPlayer * player) {
+	player->idleMovie();
+}
+
+void bmx_of_ofvideoplayer_play(ofVideoPlayer * player) {
+	player->play();
+}
+
+void bmx_of_ofvideoplayer_stop(ofVideoPlayer * player) {
+	player->stop();
+}
+
+float bmx_of_ofvideoplayer_getspeed(ofVideoPlayer * player) {
+	return player->getSpeed();
+}
+
+int bmx_of_ofvideoplayer_isloaded(ofVideoPlayer * player) {
+	return static_cast<int>(player->bLoaded);
+}
+
+int bmx_of_ofvideoplayer_isframenew(ofVideoPlayer * player) {
+	return static_cast<int>(player->isFrameNew());
+}
+
+float bmx_of_ofvideoplayer_getposition(ofVideoPlayer * player) {
+	return player->getPosition();
+}
+
+float bmx_of_ofvideoplayer_getduration(ofVideoPlayer * player) {
+	return player->getDuration();
+}
+
+int bmx_of_ofvideoplayer_getismoviedone(ofVideoPlayer * player) {
+	return static_cast<int>(player->getIsMovieDone());
+}
+
+void bmx_of_ofvideoplayer_setposition(ofVideoPlayer * player, float pct) {
+	player->setPosition(pct);
+}
+
+void bmx_of_ofvideoplayer_setvolume(ofVideoPlayer * player, int volume) {
+	player->setVolume(volume);
+}
+
+void bmx_of_ofvideoplayer_setloopstate(ofVideoPlayer * player, int state) {
+	player->setLoopState(state);
+}
+
+void bmx_of_ofvideoplayer_setspeed(ofVideoPlayer * player, float speed) {
+	player->setSpeed(speed);
+}
+
+void bmx_of_ofvideoplayer_setframe(ofVideoPlayer * player, int frame) {
+	player->setFrame(frame);
+}
+
+void bmx_of_ofvideoplayer_setpaused(ofVideoPlayer * player, int pause) {
+	player->setPaused(static_cast<bool>(pause));
+}
+
+int bmx_of_ofvideoplayer_getcurrentframe(ofVideoPlayer * player) {
+	return player->getCurrentFrame();
+}
+
+int bmx_of_ofvideoplayer_gettotalnumframes(ofVideoPlayer * player) {
+	return player->getTotalNumFrames();
+}
+
+void bmx_of_ofvideoplayer_firstframe(ofVideoPlayer * player) {
+	player->firstFrame();
+}
+
+void bmx_of_ofvideoplayer_nextframe(ofVideoPlayer * player) {
+	player->nextFrame();
+}
+
+void bmx_of_ofvideoplayer_previousframe(ofVideoPlayer * player) {
+	player->previousFrame();
+}
+
