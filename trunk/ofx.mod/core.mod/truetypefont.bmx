@@ -27,7 +27,9 @@ SuperStrict
 
 Import "common.bmx"
 
-
+Rem
+bbdoc: 
+End Rem
 Type ofTrueTypeFont
 
 	Field fontPtr:Byte Ptr
@@ -36,15 +38,50 @@ Type ofTrueTypeFont
 		fontPtr = bmx_ofx_oftruetypefont_new()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method loadFont(filename:String, _fontSize:Int, antiAliased:Int = True, fullCharacterSet:Int = False, makeContours:Int = False)
 		bmx_ofx_oftruetypefont_loadfont(fontPtr, filename, _fontSize, antiAliased, fullCharacterSet, makeContours)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method drawString(text:String, x:Float, y:Float)
 		bmx_ofx_oftruetypefont_drawstring(fontPtr, text, x, y)
 	End Method
 
+	Method getLineHeight:Float()
+		Return bmx_ofx_oftruetypefont_getlineheight(fontPtr)
+	End Method
+	
+	Method setLineHeight(height:Float)
+		bmx_ofx_oftruetypefont_setlineheight(fontPtr, height)
+	End Method
+	
+	Method stringWidth:Float(s:String)
+		Return bmx_ofx_oftruetypefont_stringwidth(fontPtr, s)
+	End Method
+	
+	Method stringHeight:Float(s:String)
+		Return bmx_ofx_oftruetypefont_stringheight(fontPtr, s)
+	End Method
+	
+	Method getStringBoundingBox(s:String, x:Float, y:Float, bbX:Float Var, bbY:Float Var, bbW:Float Var, bbH:Float Var)
+		bmx_ofx_oftruetypefont_getstringboundingbox(fontPtr, s, x, y, Varptr bbX, Varptr bbY, Varptr bbW, Varptr bbH)
+	End Method
+	
+	Method drawStringAsShapes(s:String, x:Float, y:Float)
+		bmx_ofx_oftruetypefont_drawstringasshapes(fontPtr, s, x, y)
+	End Method
+	
+	Method countCharacters:Int()
+		Return bmx_ofx_oftruetypefont_countcharacters(fontPtr)
+	End Method
 
+	'Method getCharacterAsPoints(character:Int)
+	'End Method
 
 End Type
 

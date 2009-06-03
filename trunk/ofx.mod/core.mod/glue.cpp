@@ -580,6 +580,48 @@ void bmx_ofx_oftruetypefont_drawstring(ofTrueTypeFont * font, BBString * text, f
 	bbMemFree(c);
 }
 
+float bmx_ofx_oftruetypefont_getlineheight(ofTrueTypeFont * font) {
+	return font->getLineHeight();
+}
+
+void bmx_ofx_oftruetypefont_setlineheight(ofTrueTypeFont * font, float height) {
+	font->setLineHeight(height);
+}
+
+float bmx_ofx_oftruetypefont_stringwidth(ofTrueTypeFont * font, BBString * s) {
+	char * c = bbStringToCString(s);
+	float w = font->stringWidth(c);
+	bbMemFree(c);
+	return w;
+}
+
+float bmx_ofx_oftruetypefont_stringheight(ofTrueTypeFont * font, BBString * s) {
+	char * c = bbStringToCString(s);
+	float h = font->stringHeight(c);
+	bbMemFree(c);
+	return h;
+}
+
+void bmx_ofx_oftruetypefont_getstringboundingbox(ofTrueTypeFont * font, BBString * s, float x, float y, float * bbX, float * bbY, float * bbW, float * bbH) {
+	char * c = bbStringToCString(s);
+	ofRectangle r = font->getStringBoundingBox(c, x, y);
+	bbMemFree(c);
+	*bbX = r.x;
+	*bbY = r.y;
+	*bbW = r.width;
+	*bbH = r.height;
+}
+
+void bmx_ofx_oftruetypefont_drawstringasshapes(ofTrueTypeFont * font, BBString * s, float x, float y) {
+	char * c = bbStringToCString(s);
+	font->drawStringAsShapes(c, x, y);
+	bbMemFree(c);
+}
+
+int bmx_ofx_oftruetypefont_countcharacters(ofTrueTypeFont * font) {
+	return font->nCharacters;
+}
+
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

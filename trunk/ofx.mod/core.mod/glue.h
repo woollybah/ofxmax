@@ -155,6 +155,13 @@ extern "C" {
 	ofTrueTypeFont * bmx_ofx_oftruetypefont_new();
 	void bmx_ofx_oftruetypefont_loadfont(ofTrueTypeFont * font, BBString * filename, int _fontSize, int antiAliased, int fullCharacterSet, int makeContours);
 	void bmx_ofx_oftruetypefont_drawstring(ofTrueTypeFont * font, BBString * text, float x, float y);
+	float bmx_ofx_oftruetypefont_getlineheight(ofTrueTypeFont * font);
+	void bmx_ofx_oftruetypefont_setlineheight(ofTrueTypeFont * font, float height);
+	float bmx_ofx_oftruetypefont_stringwidth(ofTrueTypeFont * font, BBString * s);
+	float bmx_ofx_oftruetypefont_stringheight(ofTrueTypeFont * font, BBString * s);
+	void bmx_ofx_oftruetypefont_getstringboundingbox(ofTrueTypeFont * font, BBString * s, float x, float y, float * bbX, float * bbY, float * bbW, float * bbH);
+	void bmx_ofx_oftruetypefont_drawstringasshapes(ofTrueTypeFont * font, BBString * s, float x, float y);
+	int bmx_ofx_oftruetypefont_countcharacters(ofTrueTypeFont * font);
 
 	unsigned char * bmx_of_ofvideoplayer_getpixels(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_close(ofVideoPlayer * player);

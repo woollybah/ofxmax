@@ -176,6 +176,13 @@ Extern
 	Function bmx_ofx_oftruetypefont_new:Byte Ptr()
 	Function bmx_ofx_oftruetypefont_loadfont(handle:Byte Ptr, filename:String, _fontSize:Int, antiAliased:Int, fullCharacterSet:Int, makeContours:Int)
 	Function bmx_ofx_oftruetypefont_drawstring(handle:Byte Ptr, text:String, x:Float, y:Float)
+	Function bmx_ofx_oftruetypefont_getlineheight:Float(handle:Byte Ptr)
+	Function bmx_ofx_oftruetypefont_setlineheight(handle:Byte Ptr, height:Float)
+	Function bmx_ofx_oftruetypefont_stringwidth:Float(handle:Byte Ptr, s:String)
+	Function bmx_ofx_oftruetypefont_stringheight:Float(handle:Byte Ptr, s:String)
+	Function bmx_ofx_oftruetypefont_getstringboundingbox(handle:Byte Ptr, s:String, x:Float, y:Float, bbX:Float Ptr, bbY:Float Ptr, bbW:Float Ptr, bbH:Float Ptr)
+	Function bmx_ofx_oftruetypefont_drawstringasshapes(handle:Byte Ptr, s:String, x:Float, y:Float)
+	Function bmx_ofx_oftruetypefont_countcharacters:Int(handle:Byte Ptr)
 
 	Function bmx_of_ofvideoplayer_getpixels:Byte Ptr(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_close(handle:Byte Ptr)
