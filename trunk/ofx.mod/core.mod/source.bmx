@@ -26,7 +26,6 @@
 SuperStrict
 
 Import BaH.FreeImage
-Import BaH.FMOD
 Import Pub.FreeType
 Import BRL.Blitz
 
@@ -73,7 +72,7 @@ Import "libs/openFrameworks/graphics/ofGraphics.cpp"
 Import "libs/openFrameworks/graphics/ofImage.cpp"
 Import "libs/openFrameworks/graphics/ofTexture.cpp"
 Import "libs/openFrameworks/graphics/ofTrueTypeFont.cpp"
-Import "libs/openFrameworks/sound/ofSoundPlayer.cpp"
+'Import "libs/openFrameworks/sound/ofSoundPlayer.cpp"
 Import "libs/openFrameworks/sound/ofSoundStream.cpp"
 Import "libs/openFrameworks/utils/ofMath.cpp"
 Import "libs/openFrameworks/utils/ofUtils.cpp"

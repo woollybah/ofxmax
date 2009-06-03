@@ -4,10 +4,10 @@
 #include "ofConstants.h"
 
 #ifndef TARGET_OF_IPHONE
-extern "C" {
-#include "fmod.h"
-#include "fmod_errors.h"
-}
+//extern "C" {
+//#include "fmod.h"
+//#include "fmod_errors.h"
+//}
 #endif
 
 //		TO DO :
@@ -34,29 +34,29 @@ class ofSoundPlayer {
 
 	public:
 
-		ofSoundPlayer();
-		virtual ~ofSoundPlayer();
+		ofSoundPlayer() {};
+		virtual ~ofSoundPlayer() {} ;
 
-		void loadSound(string fileName, bool stream = false);
-		void unloadSound();
-		void play();
-		void stop();
+		virtual void loadSound(string fileName, bool stream = false) {};
+		virtual void unloadSound() {};
+		virtual void play() {};
+		virtual void stop() {};
 
-		void setVolume(float vol);
-		void setPan(float vol);
-		void setSpeed(float spd);
-		void setPaused(bool bP);
-		void setLoop(bool bLp);
-		void setMultiPlay(bool bMp);
-		void setPosition(float pct); // 0 = start, 1 = end;
+		virtual void setVolume(float vol) {};
+		virtual void setPan(float vol) {};
+		virtual void setSpeed(float spd) {};
+		virtual void setPaused(bool bP) {};
+		virtual void setLoop(bool bLp) {};
+		virtual void setMultiPlay(bool bMp) {};
+		virtual void setPosition(float pct) {}; // 0 = start, 1 = end;
 
-		float getPosition();
-		bool getIsPlaying();
-		float getSpeed();
-		float getPan();
+		virtual float getPosition() { return .0f;};
+		virtual bool getIsPlaying() {return false;};
+		virtual float getSpeed() {return .0f;};
+		virtual float getPan() {return .0f;};
 
-		static void initializeFmod();
-		static void closeFmod();
+		//static void initializeFmod();
+		//static void closeFmod();
 
 		bool isStreaming;
 		bool bMultiPlay;
@@ -70,9 +70,9 @@ class ofSoundPlayer {
 		unsigned int length; // in samples;
 
 		#ifndef TARGET_OF_IPHONE
-			FMOD_RESULT result;
-			FMOD_CHANNEL * channel;
-			FMOD_SOUND * sound;
+//			FMOD_RESULT result;
+//			FMOD_CHANNEL * channel;
+//			FMOD_SOUND * sound;
 		#endif
 };
 
