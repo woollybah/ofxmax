@@ -141,6 +141,17 @@ Type ofxMSAFluidSolver
 		Return bmx_ofx_ofxmsafluidsolver_v(solverPtr)
 	End Method
 	
+	Method Free()
+		If solverPtr Then
+			bmx_ofx_ofxmsafluidsolver_free(solverPtr)
+			solverPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
+	End Method
+	
 End Type
 
 Rem
@@ -190,6 +201,17 @@ Type ofxMSAFluidDrawer
 	Method getHeight:Float()
 	End Method
 
+	Method Free()
+		If drawPtr Then
+			bmx_ofx_ofxmsafluiddrawer_free(drawPtr)
+			drawPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
+	End Method
+
 End Type
 
 
@@ -212,7 +234,18 @@ Type ofxParticleSystem
 	Method addParticles(x:Float, y:Float, count:Int)
 		bmx_ofx_ofxparticlesystem_addparticles(systemPtr, x, y, count)
 	End Method
+
+	Method Free()
+		If systemPtr Then
+			bmx_ofx_ofxparticlesystem_free(systemPtr)
+			systemPtr = Null
+		End If
+	End Method
 	
+	Method Delete()
+		Free()
+	End Method
+
 End Type
 
 

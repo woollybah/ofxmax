@@ -51,13 +51,14 @@ Extern
 
 	Function bmx_ofx_ofxcvcolorimage_new:Byte Ptr()
 	Function bmx_ofx_ofxcvcolorimage_setfrompixels(handle:Byte Ptr, pixels:Byte Ptr, w:Int, h:Int)
+	Function bmx_ofx_ofxcvcolorimage_free(handle:Byte Ptr)
 
 	Function bmx_ofx_ofxcvgrayscaleimage_new:Byte Ptr()
 	Function bmx_ofx_ofxcvgrayscaleimage_absdiff(handle:Byte Ptr, mom:Byte Ptr, dad:Byte Ptr)
 	Function bmx_ofx_ofxcvgrayscaleimage_threshold(handle:Byte Ptr, value:Int, invert:Int)
 	Function bmx_ofx_ofxcvgrayscaleimage_adaptivethreshold(handle:Byte Ptr, blockSize:Int, offset:Int, invert:Int, gauss:Int)
 	Function bmx_ofx_ofxcvgrayscaleimage_setfrompixels(handle:Byte Ptr, pixels:Byte Ptr, w:Int, h:Int)
-
+	Function bmx_ofx_ofxcvgrayscaleimage_free(handle:Byte Ptr)
 
 	Function bmx_ofx_ofxcvcontourfinder_new:Byte Ptr()
 	Function bmx_ofx_ofxcvcontourfinder_findcontours:Int(handle:Byte Ptr, _input:Byte Ptr, minArea:Int, maxArea:Int, ..
@@ -69,6 +70,7 @@ Extern
 	Function bmx_ofx_ofxcvcontourfinder_setanchorpercent(handle:Byte Ptr, xPct:Float, yPct:Float)
 	Function bmx_ofx_ofxcvcontourfinder_setanchorpoint(handle:Byte Ptr, x:Int, y:Int)
 	Function bmx_ofx_ofxcvcontourfinder_resetanchor(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvcontourfinder_free(handle:Byte Ptr)
 
 	Function bmx_ofx_ofxfvblobiterator_hasnext:Int(handle:Byte Ptr)
 	Function bmx_ofx_ofxfvblobiterator_next:Byte Ptr(handle:Byte Ptr)

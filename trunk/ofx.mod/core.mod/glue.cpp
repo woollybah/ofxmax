@@ -267,6 +267,10 @@ void bmx_of_ofvideograbber_close(ofVideoGrabber * grab) {
 	grab->close();
 }
 
+void bmx_of_ofvideograbber_free(ofVideoGrabber * grab) {
+	delete grab;
+}
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ofTexture * bmx_of_oftexture_new() {
@@ -622,6 +626,9 @@ int bmx_ofx_oftruetypefont_countcharacters(ofTrueTypeFont * font) {
 	return font->nCharacters;
 }
 
+void bmx_ofx_oftruetypefont_free(ofTrueTypeFont * font) {
+	delete font;
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -755,4 +762,10 @@ void bmx_of_ofvideoplayer_nextframe(ofVideoPlayer * player) {
 void bmx_of_ofvideoplayer_previousframe(ofVideoPlayer * player) {
 	player->previousFrame();
 }
+
+void bmx_of_ofvideoplayer_free(ofVideoPlayer * player) {
+	delete player;
+}
+
+
 

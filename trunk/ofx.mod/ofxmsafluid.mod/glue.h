@@ -23,15 +23,18 @@ extern "C" {
 	void bmx_ofx_ofxmsafluidsolver_reset(ofxMSAFluidSolver * solver);
 	int bmx_ofx_ofxmsafluidsolver_getindexforcellposition(ofxMSAFluidSolver * solver, int x, int y);
 	int bmx_ofx_ofxmsafluidsolver_getindexfornormalizedposition(ofxMSAFluidSolver * solver, float x, float y);
+	void bmx_ofx_ofxmsafluidsolver_free(ofxMSAFluidSolver * solver);
 
 	ofxParticleSystem * bmx_ofx_ofxparticlesystem_new();
 	void bmx_ofx_ofxparticlesystem_init(ofxParticleSystem * system, ofxMSAFluidSolver * solver, int width, int height);
 	void bmx_ofx_ofxparticlesystem_updateanddraw(ofxParticleSystem * system, int renderUsingVA);
 	void bmx_ofx_ofxparticlesystem_addparticles(ofxParticleSystem * system, float x, float y, int count);
+	void bmx_ofx_ofxparticlesystem_free(ofxParticleSystem * system);
 
 	ofxMSAFluidDrawer * bmx_ofx_ofxmsafluiddrawer_new();
 	void bmx_ofx_ofxmsafluiddrawer_setup(ofxMSAFluidDrawer * drawer, ofxMSAFluidSolver * solver);
 	void bmx_ofx_ofxmsafluiddrawer_draw(ofxMSAFluidDrawer * drawer, int x, int y, int w, int h);
+	void bmx_ofx_ofxmsafluiddrawer_free(ofxMSAFluidDrawer * drawer);
 
 
 }

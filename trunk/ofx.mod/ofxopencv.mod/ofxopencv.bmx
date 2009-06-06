@@ -177,6 +177,13 @@ Type ofxCvColorImage Extends ofxCvImage
 	Method setFromPixels(pixels:Byte Ptr, w:Int, h:Int)
 		bmx_ofx_ofxcvcolorimage_setfrompixels(cvImagePtr, pixels, w, h)
 	End Method
+	
+	Method Delete()
+		If cvImagePtr Then
+			bmx_ofx_ofxcvcolorimage_free(cvImagePtr)
+			cvImagePtr = Null
+		End If
+	End Method
 
 End Type
 
@@ -207,6 +214,13 @@ Type ofxCvGrayscaleImage Extends ofxCvImage
 
 	Method setFromPixels(pixels:Byte Ptr, w:Int, h:Int)
 		bmx_ofx_ofxcvgrayscaleimage_setfrompixels(cvImagePtr, pixels, w, h)
+	End Method
+
+	Method Delete()
+		If cvImagePtr Then
+			bmx_ofx_ofxcvgrayscaleimage_free(cvImagePtr)
+			cvImagePtr = Null
+		End If
 	End Method
 
 End Type
@@ -295,6 +309,20 @@ Type ofxCvContourFinder
 		Return iter
 	End Method
 
+	Rem
+	bbdoc: 
+	End Rem
+	Method Free()
+		If contourFinderPtr Then
+			bmx_ofx_ofxcvcontourfinder_free(contourFinderPtr)
+			contourFinderPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
+	End Method
+
 End Type
 
 Rem
@@ -345,6 +373,7 @@ bbdoc:
 End Rem
 Type ofxCvBlob
 
+	' blobs do not require freeing as they are handled internally by the library
 	Field blobPtr:Byte Ptr
 
 	Function _create:ofxCvBlob(blobPtr:Byte Ptr)
@@ -448,16 +477,6 @@ Type ofxCvHaarFinder
 		bmx_ofx_ofxcvhaarfinder_findhaarobjects(haarPtr, img.cvImagePtr, minWidth, minHeight, x, y, w, h)
 	End Method
 	
-	Rem
-	bbdoc: 
-	End Rem
-	Method Free()
-		If haarPtr Then
-			bmx_ofx_ofxcvhaarfinder_free(haarPtr)
-			haarPtr = Null
-		End If
-	End Method
-
 	Method ObjectEnumerator:ofxCvBlobIterator()
 		If iter Then
 			iter.Free()
@@ -480,6 +499,15 @@ Type ofxCvHaarFinder
 		Return bmx_ofx_ofxcvhaarfinder_getheight(haarPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
+	Method Free()
+		If haarPtr Then
+			bmx_ofx_ofxcvhaarfinder_free(haarPtr)
+			haarPtr = Null
+		End If
+	End Method
 
 	Method Delete()
 		Free()

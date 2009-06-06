@@ -93,6 +93,10 @@ void bmx_ofx_ofxcvcolorimage_setfrompixels(ofxCvColorImage * img, unsigned char 
 	img->setFromPixels(pixels, w, h);
 }
 
+void bmx_ofx_ofxcvcolorimage_free(ofxCvColorImage * img) {
+	delete img;
+}
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ofxCvGrayscaleImage * bmx_ofx_ofxcvgrayscaleimage_new() {
@@ -119,6 +123,9 @@ void bmx_ofx_ofxcvgrayscaleimage_setfrompixels(ofxCvGrayscaleImage * img, unsign
 	img->setFromPixels(pixels, w, h);
 }
 
+void bmx_ofx_ofxcvgrayscaleimage_free(ofxCvGrayscaleImage * img) {
+	delete img;
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -163,6 +170,9 @@ void bmx_ofx_ofxcvcontourfinder_resetanchor(ofxCvContourFinder * finder) {
 	finder ->resetAnchor();
 }
 
+void bmx_ofx_ofxcvcontourfinder_free(ofxCvContourFinder * finder) {
+	delete finder;
+}
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 

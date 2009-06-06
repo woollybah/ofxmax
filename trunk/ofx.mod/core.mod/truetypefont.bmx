@@ -83,6 +83,17 @@ Type ofTrueTypeFont
 	'Method getCharacterAsPoints(character:Int)
 	'End Method
 
+	Method Free()
+		If fontPtr Then
+			bmx_ofx_oftruetypefont_free(fontPtr)
+			fontPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
+	End Method
+	
 End Type
 
 
