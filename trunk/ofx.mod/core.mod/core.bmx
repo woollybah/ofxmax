@@ -61,6 +61,7 @@ ModuleInfo "LD_OPTS: -L%PWD%/libs/poco/lib/linux/"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/GLee/lib/linux/"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/rtAudio/lib/linux/"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/unicap/lib"
+ModuleInfo "LD_OPTS: -L%PWD%/libs/gstappsink/lib"
 ?
 
 Import "graphics.bmx"

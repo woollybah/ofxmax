@@ -78,8 +78,8 @@ typedef struct Span{
 	struct Span *next;
 } Span;
 
-typedef struct Region{
-    struct Region *previous, *next;
+typedef struct SegmentRegion{
+    struct SegmentRegion *previous, *next;
     unsigned char colour;
     short left, top, right, bottom;
     short center_x, center_y;
@@ -97,12 +97,12 @@ typedef struct Region{
     char *depth_string;                     /* not initialized by segmenter */
     
     short adjacent_region_count;
-    struct Region *adjacent_regions[ 1 ];   /* variable length array of length max_adjacent_regions */
-} Region;
+    struct SegmentRegion *adjacent_regions[ 1 ];   /* variable length array of length max_adjacent_regions */
+} SegmentRegion;
 
 
 typedef struct RegionReference{
-    Region *region;
+    SegmentRegion *region;
     struct RegionReference *redirect;
 } RegionReference;
 
@@ -125,9 +125,9 @@ typedef struct RegionReference{
 }
 
 
-void initialize_head_region( Region *r );
-void link_region( Region *head, Region* r );
-void unlink_region( Region* r );
+void initialize_head_region( SegmentRegion *r );
+void link_region( SegmentRegion *head, SegmentRegion* r );
+void unlink_region( SegmentRegion* r );
 
 
 typedef struct Segmenter{
@@ -136,7 +136,7 @@ typedef struct Segmenter{
     unsigned char *regions;     /* buffer containing raw region ptrs */
     unsigned char *spans;		/* buffer containing raw span ptrs */
     int region_count;
-    Region *freed_regions_head;
+    SegmentRegion *freed_regions_head;
 
     int sizeof_region;
     int max_adjacent_regions;
@@ -147,7 +147,7 @@ typedef struct Segmenter{
 }Segmenter;
 
 #define LOOKUP_SEGMENTER_REGION( s, index )\
-    (Region*)(s->regions + (s->sizeof_region * (index)))
+    (SegmentRegion*)(s->regions + (s->sizeof_region * (index)))
 
 #define LOOKUP_SEGMENTER_SPAN( s, index )\
     (Span*)(s->spans + (sizeof(Span) * (index)))

@@ -54,6 +54,7 @@ Import "-lunicap"
 Import "-lv4l"
 Import "-lv4l2cpi"
 Import "-lvid21394"
+Import "-loFappsink"
 ' NOTE - these really want to be acquired via pkg-config
 Import "-lgstvideo-0.10"
 Import "-lgstbase-0.10"
