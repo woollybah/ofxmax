@@ -171,6 +171,17 @@ Type ofVideoGrabber Extends ofBaseVideo
 		bmx_of_ofvideograbber_listdevices(videoPtr)
 	End Method
 
+	Method Free()
+		If videoPtr Then
+			bmx_of_ofvideograbber_free(videoPtr)
+			videoPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
+	End Method
+	
 End Type
 
 Rem
@@ -414,6 +425,17 @@ Type ofVideoPlayer Extends ofBaseVideo
 	End Rem
 	Method previousFrame()
 		bmx_of_ofvideoplayer_previousframe(videoPtr)
+	End Method
+
+	Method Free()
+		If videoPtr Then
+			bmx_of_ofvideoplayer_free(videoPtr)
+			videoPtr = Null
+		End If
+	End Method
+	
+	Method Delete()
+		Free()
 	End Method
 
 End Type

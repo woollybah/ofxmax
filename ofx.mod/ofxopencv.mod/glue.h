@@ -42,12 +42,14 @@ extern "C" {
 
 	ofxCvColorImage * bmx_ofx_ofxcvcolorimage_new();
 	void bmx_ofx_ofxcvcolorimage_setfrompixels(ofxCvColorImage * img, unsigned char * pixels, int w, int h);
+	void bmx_ofx_ofxcvcolorimage_free(ofxCvColorImage * img);
 	
 	ofxCvGrayscaleImage * bmx_ofx_ofxcvgrayscaleimage_new();
 	void bmx_ofx_ofxcvgrayscaleimage_absdiff(ofxCvGrayscaleImage * image, ofxCvGrayscaleImage * mom, ofxCvGrayscaleImage * dad);
 	void bmx_ofx_ofxcvgrayscaleimage_threshold(ofxCvGrayscaleImage * image, int value, int invert);
 	void bmx_ofx_ofxcvgrayscaleimage_adaptivethreshold(ofxCvGrayscaleImage * image, int blockSize, int offset, int invert, int gauss);
 	void bmx_ofx_ofxcvgrayscaleimage_setfrompixels(ofxCvGrayscaleImage * img, unsigned char * pixels, int w, int h);
+	void bmx_ofx_ofxcvgrayscaleimage_free(ofxCvGrayscaleImage * img);
 
 
 	ofxCvContourFinder * bmx_ofx_ofxcvcontourfinder_new();
@@ -60,6 +62,7 @@ extern "C" {
 	void bmx_ofx_ofxcvcontourfinder_setanchorpercent(ofxCvContourFinder * finder, float xPct, float yPct);
 	void bmx_ofx_ofxcvcontourfinder_setanchorpoint(ofxCvContourFinder * finder, int x, int y);
 	void bmx_ofx_ofxcvcontourfinder_resetanchor(ofxCvContourFinder * finder);
+	void bmx_ofx_ofxcvcontourfinder_free(ofxCvContourFinder * finder);
 
 	int bmx_ofx_ofxfvblobiterator_hasnext(MaxofxCvBlobIterator * iter);
 	ofxCvBlob * bmx_ofx_ofxfvblobiterator_next(MaxofxCvBlobIterator * iter);

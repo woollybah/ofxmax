@@ -76,6 +76,7 @@ extern "C" {
 	void bmx_of_ofvideograbber_setdeviceid(ofVideoGrabber * grab, int deviceID);
 	void bmx_of_ofvideograbber_listdevices(ofVideoGrabber * grab);
 	void bmx_of_ofvideograbber_close(ofVideoGrabber * grab);
+	void bmx_of_ofvideograbber_free(ofVideoGrabber * grab);
 
 	ofTexture * bmx_of_oftexture_new();
 	void bmx_of_oftexture_allocate(ofTexture * texture, int w, int h, int internalGlDataType);
@@ -162,6 +163,7 @@ extern "C" {
 	void bmx_ofx_oftruetypefont_getstringboundingbox(ofTrueTypeFont * font, BBString * s, float x, float y, float * bbX, float * bbY, float * bbW, float * bbH);
 	void bmx_ofx_oftruetypefont_drawstringasshapes(ofTrueTypeFont * font, BBString * s, float x, float y);
 	int bmx_ofx_oftruetypefont_countcharacters(ofTrueTypeFont * font);
+	void bmx_ofx_oftruetypefont_free(ofTrueTypeFont * font);
 
 	unsigned char * bmx_of_ofvideoplayer_getpixels(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_close(ofVideoPlayer * player);
@@ -194,6 +196,7 @@ extern "C" {
 	void bmx_of_ofvideoplayer_firstframe(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_nextframe(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_previousframe(ofVideoPlayer * player);
+	void bmx_of_ofvideoplayer_free(ofVideoPlayer * player);
 
 	
 }

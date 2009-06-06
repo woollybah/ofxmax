@@ -98,6 +98,7 @@ Extern
 	Function bmx_of_ofvideograbber_setdeviceid(handle:Byte Ptr, deviceID:Int)
 	Function bmx_of_ofvideograbber_listdevices(handle:Byte Ptr)
 	Function bmx_of_ofvideograbber_close(handle:Byte Ptr)
+	Function bmx_of_ofvideograbber_free(handle:Byte Ptr)
 
 	Function bmx_of_oftexture_new:Byte Ptr()
 	Function bmx_of_oftexture_allocate(handle:Byte Ptr, w:Int, h:Int, internalGlDataType:Int)
@@ -184,6 +185,7 @@ Extern
 	Function bmx_ofx_oftruetypefont_getstringboundingbox(handle:Byte Ptr, s:String, x:Float, y:Float, bbX:Float Ptr, bbY:Float Ptr, bbW:Float Ptr, bbH:Float Ptr)
 	Function bmx_ofx_oftruetypefont_drawstringasshapes(handle:Byte Ptr, s:String, x:Float, y:Float)
 	Function bmx_ofx_oftruetypefont_countcharacters:Int(handle:Byte Ptr)
+	Function bmx_ofx_oftruetypefont_free(handle:Byte Ptr)
 
 	Function bmx_of_ofvideoplayer_getpixels:Byte Ptr(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_close(handle:Byte Ptr)
@@ -216,6 +218,7 @@ Extern
 	Function bmx_of_ofvideoplayer_firstframe(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_nextframe(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_previousframe(handle:Byte Ptr)
+	Function bmx_of_ofvideoplayer_free(handle:Byte Ptr)
 
 End Extern
 

@@ -79,6 +79,10 @@ int bmx_ofx_ofxmsafluidsolver_getindexfornormalizedposition(ofxMSAFluidSolver * 
 	return solver->getIndexForNormalizedPosition(x, y);
 }
 
+void bmx_ofx_ofxmsafluidsolver_free(ofxMSAFluidSolver * solver) {
+	delete solver;
+}
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ofxParticleSystem * bmx_ofx_ofxparticlesystem_new() {
@@ -95,6 +99,10 @@ void bmx_ofx_ofxparticlesystem_updateanddraw(ofxParticleSystem * system, int ren
 
 void bmx_ofx_ofxparticlesystem_addparticles(ofxParticleSystem * system, float x, float y, int count) {
 	system->addParticles(x, y, count);
+}
+
+void bmx_ofx_ofxparticlesystem_free(ofxParticleSystem * system) {
+	delete system;
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -114,5 +122,10 @@ void bmx_ofx_ofxmsafluiddrawer_draw(ofxMSAFluidDrawer * drawer, int x, int y, in
 		drawer->draw(x, y, w, h);
 	}
 }
+
+void bmx_ofx_ofxmsafluiddrawer_free(ofxMSAFluidDrawer * drawer) {
+	delete drawer;
+}
+
 
 

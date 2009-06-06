@@ -23,15 +23,18 @@ Extern
 	Function bmx_ofx_ofxmsafluidsolver_reset(handle:Byte Ptr)
 	Function bmx_ofx_ofxmsafluidsolver_getindexforcellposition:Int(handle:Byte Ptr, x:Int, y:Int)
 	Function bmx_ofx_ofxmsafluidsolver_getindexfornormalizedposition:Int(handle:Byte Ptr, x:Float, y:Float)
+	Function bmx_ofx_ofxmsafluidsolver_free(handle:Byte Ptr)
 
 	Function bmx_ofx_ofxparticlesystem_new:Byte Ptr()
 	Function bmx_ofx_ofxparticlesystem_init(handle:Byte Ptr, solver:Byte Ptr, width:Int, height:Int)
 	Function bmx_ofx_ofxparticlesystem_updateanddraw(handle:Byte Ptr, renderUsingVA:Int)
 	Function bmx_ofx_ofxparticlesystem_addparticles(handle:Byte Ptr, x:Float, y:Float, count:Int)
+	Function bmx_ofx_ofxparticlesystem_free(handle:Byte Ptr)
 
 	Function bmx_ofx_ofxmsafluiddrawer_new:Byte Ptr()
 	Function bmx_ofx_ofxmsafluiddrawer_setup(handle:Byte Ptr, solver:Byte Ptr)
 	Function bmx_ofx_ofxmsafluiddrawer_draw(handle:Byte Ptr, x:Int, y:Int, w:Int, h:Int)
+	Function bmx_ofx_ofxmsafluiddrawer_free(handle:Byte Ptr)
 
 
 End Extern
