@@ -26,11 +26,13 @@
 */
 
 #include "ofxOpenCv.h"
+#include "ofxCvHaarFinder.h"
 
 class MaxofxCvBlobIterator;
 
 extern "C" {
 
+#include "blitz.h"
 
 	void bmx_ofx_ofxcvimage_copycolor(ofxCvImage * img, ofxCvColorImage * image);
 	void bmx_ofx_ofxcvimage_copygray(ofxCvImage * img, ofxCvGrayscaleImage * image);
@@ -70,6 +72,18 @@ extern "C" {
 	void bmx_ofx_ofxcvblob_getboundingrect(ofxCvBlob * blob, float * x, float * y, float * w, float * h);
 	void bmx_ofx_ofxcvblob_getcentroid(ofxCvBlob * blob, float * x, float * y);
 	int bmx_ofx_ofxcvblob_hole(ofxCvBlob * blob);
+
+	ofxCvHaarFinder * bmx_ofx_ofxcvhaarfinder_new();
+	void bmx_ofx_ofxcvhaarfinder_setup(ofxCvHaarFinder * finder, BBString * haarFile);
+	int bmx_ofx_ofxcvhaarfinder_ready(ofxCvHaarFinder * finder);
+	void bmx_ofx_ofxcvhaarfinder_setscalehaar(ofxCvHaarFinder * finder, float scaleHaar);
+	void bmx_ofx_ofxcvhaarfinder_setneighbors(ofxCvHaarFinder * finder, unsigned neighbors);
+	int bmx_ofx_ofxcvhaarfinder_findhaarobjects(ofxCvHaarFinder * finder, ofxCvGrayscaleImage * img, int minWidth, int minHeight, int x,
+		int y, int w, int h);
+	void bmx_ofx_ofxcvhaarfinder_free(ofxCvHaarFinder * finder);
+	MaxofxCvBlobIterator * bmx_ofx_ofxcvhaarfinder_getblobs(ofxCvHaarFinder * finder);
+	float bmx_ofx_ofxcvhaarfinder_getwidth(ofxCvHaarFinder * finder);
+	float bmx_ofx_ofxcvhaarfinder_getheight(ofxCvHaarFinder * finder);
 
 }
 

@@ -399,3 +399,91 @@ Type ofxCvBlob
 
 End Type
 
+Rem
+bbdoc: 
+End Rem
+Type ofxCvHaarFinder
+	
+	Field haarPtr:Byte Ptr
+
+	Field iter:ofxCvBlobIterator
+
+	Method New()
+		haarPtr = bmx_ofx_ofxcvhaarfinder_new()
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method setup(haarFile:String)
+		bmx_ofx_ofxcvhaarfinder_setup(haarPtr, haarFile)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method ready:Int()
+		Return bmx_ofx_ofxcvhaarfinder_ready(haarPtr)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method setScaleHaar(scaleHaar:Float)
+		bmx_ofx_ofxcvhaarfinder_setscalehaar(haarPtr, scaleHaar)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method setNeighbors(neighbors:Int)
+		bmx_ofx_ofxcvhaarfinder_setneighbors(haarPtr, neighbors)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method findHaarObjects(img:ofxCvGrayscaleImage, minWidth:Int = HAAR_DEFAULT_MIN_SIZE, minHeight:Int = HAAR_DEFAULT_MIN_SIZE, ..
+			x:Int = -1, y:Int = -1, w:Int = -1, h:Int = -1)
+		bmx_ofx_ofxcvhaarfinder_findhaarobjects(haarPtr, img.cvImagePtr, minWidth, minHeight, x, y, w, h)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method Free()
+		If haarPtr Then
+			bmx_ofx_ofxcvhaarfinder_free(haarPtr)
+			haarPtr = Null
+		End If
+	End Method
+
+	Method ObjectEnumerator:ofxCvBlobIterator()
+		If iter Then
+			iter.Free()
+		End If
+		iter = ofxCvBlobIterator._create(bmx_ofx_ofxcvhaarfinder_getblobs(haarPtr))
+		Return iter
+	End Method
+
+	Rem
+	bbdoc: 
+	End Rem
+	Method getWidth:Float()
+		Return bmx_ofx_ofxcvhaarfinder_getwidth(haarPtr)
+	End Method
+	
+	Rem
+	bbdoc: 
+	End Rem
+	Method getHeight:Float()
+		Return bmx_ofx_ofxcvhaarfinder_getheight(haarPtr)
+	End Method
+	
+
+	Method Delete()
+		Free()
+	End Method
+	
+End Type
+

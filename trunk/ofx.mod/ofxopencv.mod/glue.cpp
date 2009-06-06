@@ -215,4 +215,53 @@ int bmx_ofx_ofxcvblob_hole(ofxCvBlob * blob) {
 }
 
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ofxCvHaarFinder * bmx_ofx_ofxcvhaarfinder_new() {
+	return new ofxCvHaarFinder();
+}
+
+void bmx_ofx_ofxcvhaarfinder_setup(ofxCvHaarFinder * finder, BBString * haarFile) {
+	char * f = bbStringToCString(haarFile);
+	finder->setup(f);
+	bbMemFree(f);
+}
+
+int bmx_ofx_ofxcvhaarfinder_ready(ofxCvHaarFinder * finder) {
+	return static_cast<int>(finder->ready());
+}
+
+void bmx_ofx_ofxcvhaarfinder_setscalehaar(ofxCvHaarFinder * finder, float scaleHaar) {
+	finder->setScaleHaar(scaleHaar);
+}
+
+void bmx_ofx_ofxcvhaarfinder_setneighbors(ofxCvHaarFinder * finder, unsigned neighbors) {
+	finder->setNeighbors(neighbors);
+}
+
+int bmx_ofx_ofxcvhaarfinder_findhaarobjects(ofxCvHaarFinder * finder, ofxCvGrayscaleImage * img, int minWidth, int minHeight, int x,
+		int y, int w, int h) {
+	if (x == -1 || y == -1 || w == -1 || h == -1) {
+		return finder->findHaarObjects(*img, minWidth, minHeight);
+	} else {
+		return finder->findHaarObjects(*img, x, y, w, h, minWidth, minHeight);
+	}
+}
+
+void bmx_ofx_ofxcvhaarfinder_free(ofxCvHaarFinder * finder) {
+	delete finder;
+}
+
+MaxofxCvBlobIterator * bmx_ofx_ofxcvhaarfinder_getblobs(ofxCvHaarFinder * finder) {
+	return new MaxofxCvBlobIterator(&finder->blobs);
+}
+
+float bmx_ofx_ofxcvhaarfinder_getwidth(ofxCvHaarFinder * finder) {
+	return finder->getWidth();
+}
+
+float bmx_ofx_ofxcvhaarfinder_getheight(ofxCvHaarFinder * finder) {
+	return finder->getHeight();
+}
+
 

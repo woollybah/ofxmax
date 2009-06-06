@@ -26,6 +26,7 @@
 SuperStrict
 
 Import ofx.core
+Import BRL.Blitz
 
 ' NOTE : doesn't currently work with BMK...
 ' Include "../core.mod/standardimports.bmx"
@@ -75,6 +76,7 @@ Import "ofxOpenCv/src/ofxCvFloatImage.cpp"
 Import "ofxOpenCv/src/ofxCvGrayscaleImage.cpp"
 Import "ofxOpenCv/src/ofxCvImage.cpp"
 
+Import "ofxOpenCv/src/ofxCvHaarFinder.cpp"
 
 Import "*.h"
 Import "glue.cpp"

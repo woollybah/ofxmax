@@ -82,6 +82,17 @@ Extern
 	Function bmx_ofx_ofxcvblob_getcentroid(handle:Byte Ptr, x:Float Ptr, y:Float Ptr)
 	Function bmx_ofx_ofxcvblob_hole:Int(handle:Byte Ptr)
 
+	Function bmx_ofx_ofxcvhaarfinder_new:Byte Ptr()
+	Function bmx_ofx_ofxcvhaarfinder_setup(handle:Byte Ptr, haarFile:String)
+	Function bmx_ofx_ofxcvhaarfinder_ready:Int(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvhaarfinder_setscalehaar(handle:Byte Ptr, scaleHaar:Float)
+	Function bmx_ofx_ofxcvhaarfinder_setneighbors(handle:Byte Ptr, neighbors:Int)
+	Function bmx_ofx_ofxcvhaarfinder_findhaarobjects:Int(handle:Byte Ptr, img:Byte Ptr, minWidth:Int, minHeight:Int, x:Int, y:Int, w:Int, h:Int)
+	Function bmx_ofx_ofxcvhaarfinder_free(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvhaarfinder_getblobs:Byte Ptr(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvhaarfinder_getwidth:Float(handle:Byte Ptr)
+	Function bmx_ofx_ofxcvhaarfinder_getheight:Float(handle:Byte Ptr)
+
 End Extern
 
 
@@ -189,4 +200,6 @@ Const CV_HLS2BGR:Int = 60
 Const CV_HLS2RGB:Int = 61
 
 Const CV_COLORCVT_MAX:Int = 100
+
+Const HAAR_DEFAULT_MIN_SIZE:Int = 0
 
