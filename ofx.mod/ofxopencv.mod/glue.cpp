@@ -83,6 +83,14 @@ void bmx_ofx_ofxcvimage_allocate(ofxCvImage * img, int w, int h) {
 	img->allocate(w, h);
 }
 
+void bmx_ofx_ofxcvimage_blur(ofxCvImage * img, int value) {
+	img->blur(value);
+}
+
+void bmx_ofx_ofxcvimage_blurgaussian(ofxCvImage * img, int value) {
+	img->blurGaussian(value);
+}
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ofxCvColorImage * bmx_ofx_ofxcvcolorimage_new() {
@@ -272,6 +280,24 @@ float bmx_ofx_ofxcvhaarfinder_getwidth(ofxCvHaarFinder * finder) {
 
 float bmx_ofx_ofxcvhaarfinder_getheight(ofxCvHaarFinder * finder) {
 	return finder->getHeight();
+}
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ofxCvOpticalFlowLK * bmx_ofx_ofxcvopticalflowlk_new() {
+	return new ofxCvOpticalFlowLK();
+}
+
+void bmx_ofx_ofxcvopticalflowlk_allocate(ofxCvOpticalFlowLK * flow, int w, int h) {
+	flow->allocate(w, h);
+}
+
+void bmx_ofx_ofxcvopticalflowlk_getvelocity(ofxCvOpticalFlowLK * flow, int x, int y, float * vx, float * vy) {
+	flow->getVelocity(x, y, vx, vy);
+}
+
+void bmx_ofx_ofxcvopticalflowlk_calculateflow(ofxCvOpticalFlowLK * flow, ofxCvGrayscaleImage * prev, ofxCvGrayscaleImage * curr) {
+	flow->calculateFlow(*prev, *curr);
 }
 
 

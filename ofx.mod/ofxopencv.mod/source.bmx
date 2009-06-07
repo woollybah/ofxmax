@@ -78,5 +78,7 @@ Import "ofxOpenCv/src/ofxCvImage.cpp"
 
 Import "ofxOpenCv/src/ofxCvHaarFinder.cpp"
 
+Import "ofxOpenCv/src/ofxCvOpticalFlow.cpp"
+
 Import "*.h"
 Import "glue.cpp"

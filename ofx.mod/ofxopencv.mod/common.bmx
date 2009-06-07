@@ -48,6 +48,8 @@ Extern
 	Function bmx_ofx_ofxcvimage_draw(handle:Byte Ptr, x:Float, y:Float, w:Float, h:Float)
 	Function bmx_ofx_ofxcvimage_setfrompixels(handle:Byte Ptr, pixels:Byte Ptr, w:Int, h:Int)
 	Function bmx_ofx_ofxcvimage_allocate(handle:Byte Ptr, w:Int, h:Int)
+	Function bmx_ofx_ofxcvimage_blur(handle:Byte Ptr, value:Int)
+	Function bmx_ofx_ofxcvimage_blurgaussian(handle:Byte Ptr, value:Int)
 
 	Function bmx_ofx_ofxcvcolorimage_new:Byte Ptr()
 	Function bmx_ofx_ofxcvcolorimage_setfrompixels(handle:Byte Ptr, pixels:Byte Ptr, w:Int, h:Int)
@@ -94,6 +96,11 @@ Extern
 	Function bmx_ofx_ofxcvhaarfinder_getblobs:Byte Ptr(handle:Byte Ptr)
 	Function bmx_ofx_ofxcvhaarfinder_getwidth:Float(handle:Byte Ptr)
 	Function bmx_ofx_ofxcvhaarfinder_getheight:Float(handle:Byte Ptr)
+
+	Function bmx_ofx_ofxcvopticalflowlk_new:Byte Ptr()
+	Function bmx_ofx_ofxcvopticalflowlk_allocate(handle:Byte Ptr, w:Int, h:Int)
+	Function bmx_ofx_ofxcvopticalflowlk_getvelocity(handle:Byte Ptr, x:Int, y:Int, vx:Float Ptr, vy:Float Ptr)
+	Function bmx_ofx_ofxcvopticalflowlk_calculateflow(handle:Byte Ptr, prev:Byte Ptr, curr:Byte Ptr)
 
 End Extern
 

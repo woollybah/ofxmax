@@ -108,9 +108,11 @@ Type ofxCvImage
 	End Method
 	
 	Method blur(value:Int = 3)
+		bmx_ofx_ofxcvimage_blur(cvImagePtr, value)
 	End Method
 	
 	Method blurGaussian(value:Int = 3)
+		bmx_ofx_ofxcvimage_blurgaussian(cvImagePtr, value)
 	End Method
 	
 	Method invert()
@@ -514,4 +516,36 @@ Type ofxCvHaarFinder
 	End Method
 	
 End Type
+
+
+Type ofxCvOpticalFlow
+
+	Field flowPtr:Byte Ptr
+	
+	Method allocate(w:Int, h:Int) Abstract
+	
+	Method getVelocity(x:Int, y:Int, vx:Float Var, vy:Float Var) Abstract
+	
+End Type
+
+Type ofxCvOpticalFlowLK Extends ofxCvOpticalFlow
+
+	Method New()
+		flowPtr = bmx_ofx_ofxcvopticalflowlk_new()
+	End Method
+
+	Method allocate(w:Int, h:Int)
+		bmx_ofx_ofxcvopticalflowlk_allocate(flowPtr, w, h)
+	End Method
+	
+	Method getVelocity(x:Int, y:Int, vx:Float Var, vy:Float Var)
+		bmx_ofx_ofxcvopticalflowlk_getvelocity(flowPtr, x, y, Varptr vx, Varptr vy)
+	End Method
+	
+	Method calculateFlow(prev:ofxCvGrayscaleImage, curr:ofxCvGrayscaleImage)
+		bmx_ofx_ofxcvopticalflowlk_calculateflow(flowPtr, prev.cvImagePtr, curr.cvImagePtr)
+	End Method
+
+End Type
+
 
