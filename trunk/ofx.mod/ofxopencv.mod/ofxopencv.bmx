@@ -65,88 +65,188 @@ Type ofxCvImage
 	'	cvImagePtr = bmx_ofx_ofxcvimage_new()
 	'End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method allocate(w:Int, h:Int)
 		bmx_ofx_ofxcvimage_allocate(cvImagePtr, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method clear()
+		bmx_ofx_ofxcvimage_clear(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getWidth:Float()
+		Return bmx_ofx_ofxcvimage_getwidth(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getHeight:Float()
+		Return bmx_ofx_ofxcvimage_getheight(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setUseTexture(use:Int)
+		bmx_ofx_ofxcvimage_setusetexture(cvImagePtr, use)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setFromPixels(pixels:Byte Ptr, w:Int, h:Int)
 		bmx_ofx_ofxcvimage_setfrompixels(cvImagePtr, pixels, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getPixels:Byte Ptr()
+		Return bmx_ofx_ofxcvimage_getpixels(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method draw(x:Float, y:Float, w:Float = 0.0, h:Float = 0.0)
 		bmx_ofx_ofxcvimage_draw(cvImagePtr, x, y, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setAnchorPercent(xPct:Float, yPct:Float)
+		bmx_ofx_ofxcvimage_setanchorpercent(cvImagePtr, xPct, yPct)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setAnchorPoint(x:Int, y:Int)
+		bmx_ofx_ofxcvimage_setanchorpoint(cvImagePtr, x, y)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method resetAnchor()
+		bmx_ofx_ofxcvimage_resetanchor(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method erode()
+		bmx_ofx_ofxcvimage_erode(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method dilate()
+		bmx_ofx_ofxcvimage_dilate(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method blur(value:Int = 3)
 		bmx_ofx_ofxcvimage_blur(cvImagePtr, value)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method blurGaussian(value:Int = 3)
 		bmx_ofx_ofxcvimage_blurgaussian(cvImagePtr, value)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method invert()
+		bmx_ofx_ofxcvimage_invert(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method contrastStretch()
+		bmx_ofx_ofxcvimage_contrastStretch(cvImagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method convertToRange(_min:Float, _max:Float)
+		bmx_ofx_ofxcvimage_convertToRange(cvImagePtr, _min, _max)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method resize(w:Int, h:Int)
+		bmx_ofx_ofxcvimage_resize(cvImagePtr, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method scaleIntoMe(mom:ofxCvImage, interpolationMethod:Int = CV_INTER_NN)
+		bmx_ofx_ofxcvimage_scaleintome(cvImagePtr, mom.cvImagePtr, interpolationMethod)
 	End Method
 	
-	Method mirror(bFlipVertically:Int, bFlipHorizontally:Int)
+	Rem
+	bbdoc: 
+	End Rem
+	Method mirror(flipVertically:Int, flipHorizontally:Int)
+		bmx_ofx_ofxcvimage_mirror(cvImagePtr, flipVertically, flipHorizontally)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method translate(x:Float, y:Float)
+		bmx_ofx_ofxcvimage_translate(cvImagePtr, x, y)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method rotate(angle:Float, centerX:Float, centerY:Float)
+		bmx_ofx_ofxcvimage_rotate(cvImagePtr, angle, centerX, centerY)
 	End Method
 	
-	Method scale(scaleX:Float, sclaeY:Float)
+	Rem
+	bbdoc: 
+	End Rem
+	Method scale(scaleX:Float, scaleY:Float)
+		bmx_ofx_ofxcvimage_scale(cvImagePtr, scaleX, scaleY)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method transform(angle:Float, centerX:Float, centerY:Float, scaleX:Float, scaleY:Float, moveX:Float, moveY:Float)
+		bmx_ofx_ofxcvimage_transform(cvImagePtr, angle, centerX, centerY, scaleX, scaleY, moveX, moveY)
 	End Method
 
+	Rem
+	bbdoc: 
+	End Rem
 	Method undistort(radialDistX:Float, radialDistY:Float, tangentDistX:Float, tangentDistY:Float, focalX:Float, ..
 			focalY:Float, centerX:Float, centerY:Float)
+		bmx_ofx_ofxcvimage_undistort(cvImagePtr, radialDistX, radialDistY, tangentDistX, tangentDistY, focalX, ..
+			focalY, centerX, centerY)
 	End Method
 
 	'Method warpPerspective( Const ofPoint& A, Const ofPoint& B,
@@ -154,9 +254,16 @@ Type ofxCvImage
 	'Method warpIntoMe(mom:ofxCvImage, ofPoint src[4], Const ofPoint dst[4] );
 
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method countNonZeroInRegion:Int(x:Int, y:Int, w:Int, h:Int)
+		Return bmx_ofx_ofxcvimage_countnonzeroinregion(cvImagePtr, x, y, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method copy(image:ofxCvImage)
 		If ofxCvColorImage(image) Then
 			bmx_ofx_ofxcvimage_copycolor(cvImagePtr, image.cvImagePtr)
@@ -176,6 +283,9 @@ Type ofxCvColorImage Extends ofxCvImage
 		cvImagePtr = bmx_ofx_ofxcvcolorimage_new()
 	End Method
 
+	Rem
+	bbdoc: 
+	End Rem
 	Method setFromPixels(pixels:Byte Ptr, w:Int, h:Int)
 		bmx_ofx_ofxcvcolorimage_setfrompixels(cvImagePtr, pixels, w, h)
 	End Method
@@ -198,6 +308,9 @@ Type ofxCvGrayscaleImage Extends ofxCvImage
 		cvImagePtr = bmx_ofx_ofxcvgrayscaleimage_new()
 	End Method
 
+	Rem
+	bbdoc: 
+	End Rem
 	Method absDiff(mom:ofxCvGrayscaleImage, dad:ofxCvGrayscaleImage = Null)
 		If dad Then
 			bmx_ofx_ofxcvgrayscaleimage_absdiff(cvImagePtr, mom.cvImagePtr, dad.cvImagePtr)
@@ -206,14 +319,23 @@ Type ofxCvGrayscaleImage Extends ofxCvImage
 		End If
 	End Method
 
+	Rem
+	bbdoc: 
+	End Rem
 	Method threshold(value:Int, invert:Int = False)
 		bmx_ofx_ofxcvgrayscaleimage_threshold(cvImagePtr, value, invert)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
     Method adaptiveThreshold(blockSize:Int, offset:Int = 0, invert:Int = False, gauss:Int = False)
 		bmx_ofx_ofxcvgrayscaleimage_adaptivethreshold(cvImagePtr, blockSize, offset, invert, gauss)
 	End Method
 
+	Rem
+	bbdoc: 
+	End Rem
 	Method setFromPixels(pixels:Byte Ptr, w:Int, h:Int)
 		bmx_ofx_ofxcvgrayscaleimage_setfrompixels(cvImagePtr, pixels, w, h)
 	End Method

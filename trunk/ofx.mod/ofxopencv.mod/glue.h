@@ -42,7 +42,31 @@ extern "C" {
 	void bmx_ofx_ofxcvimage_allocate(ofxCvImage * img, int w, int h);
 	void bmx_ofx_ofxcvimage_blur(ofxCvImage * img, int value);
 	void bmx_ofx_ofxcvimage_blurgaussian(ofxCvImage * img, int value);
+	void bmx_ofx_ofxcvimage_clear(ofxCvImage * img);
+	float bmx_ofx_ofxcvimage_getwidth(ofxCvImage * img);
+	float bmx_ofx_ofxcvimage_getheight(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_setusetexture(ofxCvImage * img, int use);
+	unsigned char* bmx_ofx_ofxcvimage_getpixels(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_setanchorpercent(ofxCvImage * img, float xPct, float yPct);
+	void bmx_ofx_ofxcvimage_setanchorpoint(ofxCvImage * img, int x, int y);
+	void bmx_ofx_ofxcvimage_resetanchor(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_erode(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_dilate(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_invert(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_contrastStretch(ofxCvImage * img);
+	void bmx_ofx_ofxcvimage_convertToRange(ofxCvImage * img, float _min, float _max);
+	void bmx_ofx_ofxcvimage_resize(ofxCvImage * img, int w, int h);
+	void bmx_ofx_ofxcvimage_scaleintome(ofxCvImage * img, ofxCvImage * mom, int interpolationMethod);
+	void bmx_ofx_ofxcvimage_mirror(ofxCvImage * img, int flipVertically, int flipHorizontally);
+	void bmx_ofx_ofxcvimage_translate(ofxCvImage * img, float x, float y);
+	void bmx_ofx_ofxcvimage_rotate(ofxCvImage * img, float angle, float centerX, float centerY);
+	void bmx_ofx_ofxcvimage_scale(ofxCvImage * img, float scaleX, float scaleY);
+	void bmx_ofx_ofxcvimage_transform(ofxCvImage * img, float angle, float centerX, float centerY, float scaleX, float scaleY, float moveX, float moveY);
+	void bmx_ofx_ofxcvimage_undistort(ofxCvImage * img, float radialDistX, float radialDistY, float tangentDistX, float tangentDistY, float focalX,
+		float focalY, float centerX, float centerY);
+	int bmx_ofx_ofxcvimage_countnonzeroinregion(ofxCvImage * img, int x, int y, int w, int h);
 
+	
 	ofxCvColorImage * bmx_ofx_ofxcvcolorimage_new();
 	void bmx_ofx_ofxcvcolorimage_setfrompixels(ofxCvColorImage * img, unsigned char * pixels, int w, int h);
 	void bmx_ofx_ofxcvcolorimage_free(ofxCvColorImage * img);
