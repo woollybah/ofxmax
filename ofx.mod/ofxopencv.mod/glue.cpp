@@ -91,6 +91,96 @@ void bmx_ofx_ofxcvimage_blurgaussian(ofxCvImage * img, int value) {
 	img->blurGaussian(value);
 }
 
+void bmx_ofx_ofxcvimage_clear(ofxCvImage * img) {
+	img->clear();
+}
+
+float bmx_ofx_ofxcvimage_getwidth(ofxCvImage * img) {
+	return img->getWidth();
+}
+
+float bmx_ofx_ofxcvimage_getheight(ofxCvImage * img) {
+	return img->getHeight();
+}
+
+void bmx_ofx_ofxcvimage_setusetexture(ofxCvImage * img, int use) {
+	img->setUseTexture(static_cast<bool>(use));
+}
+
+unsigned char* bmx_ofx_ofxcvimage_getpixels(ofxCvImage * img) {
+	return img->getPixels();
+}
+
+void bmx_ofx_ofxcvimage_setanchorpercent(ofxCvImage * img, float xPct, float yPct) {
+	img->setAnchorPercent(xPct, yPct);
+}
+
+void bmx_ofx_ofxcvimage_setanchorpoint(ofxCvImage * img, int x, int y) {
+	img->setAnchorPoint(x, y);
+}
+
+void bmx_ofx_ofxcvimage_resetanchor(ofxCvImage * img) {
+	img->resetAnchor();
+}
+
+void bmx_ofx_ofxcvimage_erode(ofxCvImage * img) {
+	img->erode();
+}
+
+void bmx_ofx_ofxcvimage_dilate(ofxCvImage * img) {
+	img->dilate();
+}
+
+void bmx_ofx_ofxcvimage_invert(ofxCvImage * img) {
+	img->invert();
+}
+
+void bmx_ofx_ofxcvimage_contrastStretch(ofxCvImage * img) {
+	img->contrastStretch();
+}
+
+void bmx_ofx_ofxcvimage_convertToRange(ofxCvImage * img, float _min, float _max) {
+	img->convertToRange(_min, _max);
+}
+
+void bmx_ofx_ofxcvimage_resize(ofxCvImage * img, int w, int h) {
+	img->resize(w, h);
+}
+
+void bmx_ofx_ofxcvimage_scaleintome(ofxCvImage * img, ofxCvImage * mom, int interpolationMethod) {
+	img->scaleIntoMe(*mom, interpolationMethod);
+}
+
+void bmx_ofx_ofxcvimage_mirror(ofxCvImage * img, int flipVertically, int flipHorizontally) {
+	img->mirror(flipVertically, flipHorizontally);
+}
+
+void bmx_ofx_ofxcvimage_translate(ofxCvImage * img, float x, float y) {
+	img->translate(x, y);
+}
+
+void bmx_ofx_ofxcvimage_rotate(ofxCvImage * img, float angle, float centerX, float centerY) {
+	img->rotate(angle, centerX, centerY);
+}
+
+void bmx_ofx_ofxcvimage_scale(ofxCvImage * img, float scaleX, float scaleY) {
+	img->scale(scaleX, scaleY);
+}
+
+void bmx_ofx_ofxcvimage_transform(ofxCvImage * img, float angle, float centerX, float centerY, float scaleX, float scaleY, float moveX, float moveY) {
+	img->transform(angle, centerX, centerY, scaleX, scaleY, moveX, moveY);
+}
+
+void bmx_ofx_ofxcvimage_undistort(ofxCvImage * img, float radialDistX, float radialDistY, float tangentDistX, float tangentDistY, float focalX,
+float focalY, float centerX, float centerY) {
+	img->undistort(radialDistX, radialDistY, tangentDistX, tangentDistY, focalX, focalY, centerX, centerY);
+}
+
+int bmx_ofx_ofxcvimage_countnonzeroinregion(ofxCvImage * img, int x, int y, int w, int h) {
+	return img->countNonZeroInRegion(x, y, w, h);
+}
+
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 ofxCvColorImage * bmx_ofx_ofxcvcolorimage_new() {
