@@ -27,6 +27,7 @@
 
 #include "ofxOpenCv.h"
 #include "ofxCvHaarFinder.h"
+#include "ofxCvOpticalFlow.h"
 
 class MaxofxCvBlobIterator;
 
@@ -39,6 +40,8 @@ extern "C" {
 	void bmx_ofx_ofxcvimage_draw(ofxCvImage * img, float x, float y, float w, float h);
 	void bmx_ofx_ofxcvimage_setfrompixels(ofxCvImage * img, unsigned char * pixels, int w, int h);
 	void bmx_ofx_ofxcvimage_allocate(ofxCvImage * img, int w, int h);
+	void bmx_ofx_ofxcvimage_blur(ofxCvImage * img, int value);
+	void bmx_ofx_ofxcvimage_blurgaussian(ofxCvImage * img, int value);
 
 	ofxCvColorImage * bmx_ofx_ofxcvcolorimage_new();
 	void bmx_ofx_ofxcvcolorimage_setfrompixels(ofxCvColorImage * img, unsigned char * pixels, int w, int h);
@@ -87,6 +90,11 @@ extern "C" {
 	MaxofxCvBlobIterator * bmx_ofx_ofxcvhaarfinder_getblobs(ofxCvHaarFinder * finder);
 	float bmx_ofx_ofxcvhaarfinder_getwidth(ofxCvHaarFinder * finder);
 	float bmx_ofx_ofxcvhaarfinder_getheight(ofxCvHaarFinder * finder);
+
+	ofxCvOpticalFlowLK * bmx_ofx_ofxcvopticalflowlk_new();
+	void bmx_ofx_ofxcvopticalflowlk_allocate(ofxCvOpticalFlowLK * flow, int w, int h);
+	void bmx_ofx_ofxcvopticalflowlk_getvelocity(ofxCvOpticalFlowLK * flow, int x, int y, float * vx, float * vy);
+	void bmx_ofx_ofxcvopticalflowlk_calculateflow(ofxCvOpticalFlowLK * flow, ofxCvGrayscaleImage * prev, ofxCvGrayscaleImage * curr);
 
 }
 
