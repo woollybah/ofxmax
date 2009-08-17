@@ -79,6 +79,12 @@ Extern
 	Function bmx_of_ofsetupopengl(window:Byte Ptr, w:Int, h:Int, screenMode:Int)
 
 	Function bmx_of_ofbaseapp_new:Byte Ptr(handle:Object)
+	Function bmx_of_ofbaseapp_keypressed(handle:Byte Ptr, key:Int)
+	Function bmx_of_ofbaseapp_keyreleased(handle:Byte Ptr, key:Int)
+	Function bmx_of_ofbaseapp_mousepressed(handle:Byte Ptr, button:Int, x:Int, y:Int)
+	Function bmx_of_ofbaseapp_mousereleased(handle:Byte Ptr, button:Int, x:Int, y:Int)
+	Function bmx_of_ofbaseapp_mousedragged(handle:Byte Ptr, x:Int, y:Int, buttonInUse:Int)
+	Function bmx_of_ofbaseapp_mousemoved(handle:Byte Ptr, x:Int, y:Int)
 	
 	Function bmx_of_ofvideograbber_new:Byte Ptr()
 	Function bmx_of_ofvideograbber_initgrabber:Int(handle:Byte Ptr, w:Int, h:Int, texture:Int)
@@ -187,6 +193,7 @@ Extern
 	Function bmx_ofx_oftruetypefont_countcharacters:Int(handle:Byte Ptr)
 	Function bmx_ofx_oftruetypefont_free(handle:Byte Ptr)
 
+	Function bmx_of_ofvideoplayer_new:Byte Ptr()
 	Function bmx_of_ofvideoplayer_getpixels:Byte Ptr(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_close(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_update(handle:Byte Ptr)

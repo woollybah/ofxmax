@@ -49,27 +49,27 @@ void MaxofApp::draw() {
 }
 		
 void MaxofApp::keyPressed(int key) {
-
+	_ofx_core_ofBaseApp__keyPressed(maxHandle, key);
 }
 
 void MaxofApp::keyReleased(int key) {
-
+	_ofx_core_ofBaseApp__keyReleased(maxHandle, key);
 }
 
 void MaxofApp::mouseMoved(int x, int y ) {
-
+	_ofx_core_ofBaseApp__mouseMoved(maxHandle, x, y);
 }
 
 void MaxofApp::mouseDragged(int x, int y, int button) {
-
+	_ofx_core_ofBaseApp__mouseDragged(maxHandle, x, y, button);
 }
 
 void MaxofApp::mousePressed(int x, int y, int button) {
-
+	_ofx_core_ofBaseApp__mousePressed(maxHandle, x, y, button);
 }
 
 void MaxofApp::mouseReleased(int x, int y, int button) {
-
+	_ofx_core_ofBaseApp__mouseReleased(maxHandle, x, y, button);
 }
 
 void MaxofApp::windowResized(int w, int h) {
@@ -187,6 +187,30 @@ void bmx_of_ofsetupopengl(ofAppBaseWindow * window, int w, int h, int screenMode
 
 MaxofApp * bmx_of_ofbaseapp_new(BBObject * handle) {
 	return new MaxofApp(handle);
+}
+
+void bmx_of_ofbaseapp_keypressed(MaxofApp * app, int key) {
+	app->keyPressed(key);
+}
+
+void bmx_of_ofbaseapp_keyreleased(MaxofApp * app, int key) {
+	app->keyReleased(key);
+}
+
+void bmx_of_ofbaseapp_mousepressed(MaxofApp * app, int button, int x, int y) {
+	app->mousePressed(x, y, button);
+}
+
+void bmx_of_ofbaseapp_mousereleased(MaxofApp * app, int button, int x, int y) {
+	app->mouseReleased(x, y, button);
+}
+
+void bmx_of_ofbaseapp_mousedragged(MaxofApp * app, int x, int y, int buttonInUse) {
+	app->mouseDragged(x, y, buttonInUse);
+}
+
+void bmx_of_ofbaseapp_mousemoved(MaxofApp * app, int x, int y) {
+	app->mouseMoved(x, y);
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -631,6 +655,10 @@ void bmx_ofx_oftruetypefont_free(ofTrueTypeFont * font) {
 }
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ofVideoPlayer * bmx_of_ofvideoplayer_new() {
+	return new ofVideoPlayer;
+}
 
 unsigned char * bmx_of_ofvideoplayer_getpixels(ofVideoPlayer * player) {
 	return player->getPixels();
