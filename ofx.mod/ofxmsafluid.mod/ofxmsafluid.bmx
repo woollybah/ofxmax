@@ -27,28 +27,46 @@ Type ofxMSAFluidSolver
 		solverPtr = bmx_ofx_ofxmsafluidsolver_new()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setup:ofxMSAFluidSolver(nx:Int = FLUID_DEFAULT_NX, ny:Int = FLUID_DEFAULT_NY)
 		bmx_ofx_ofxmsafluidsolver_setup(solverPtr, nx, ny)
 		Return Self
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setSize:ofxMSAFluidSolver(nx:Int = FLUID_DEFAULT_NX, ny:Int = FLUID_DEFAULT_NY)
 		bmx_ofx_ofxmsafluidsolver_setsize(solverPtr, nx, ny)
 		Return Self
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method update()
 		bmx_ofx_ofxmsafluidsolver_update(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method reset()
 		bmx_ofx_ofxmsafluidsolver_reset(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getIndexForCellPosition:Int(x:Int, y:Int)
 		Return bmx_ofx_ofxmsafluidsolver_getindexforcellposition(solverPtr, x, y)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getIndexForNormalizedPosition:Int(x:Float, y:Float)
 		Return bmx_ofx_ofxmsafluidsolver_getindexfornormalizedposition(solverPtr, x, y)
 	End Method
@@ -65,6 +83,9 @@ Type ofxMSAFluidSolver
 	Method getHeight:Int()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setVisc:ofxMSAFluidSolver(newVisc:Float)
 		bmx_ofx_ofxmsafluidsolver_setvisc(solverPtr, newVisc)
 		Return Self
@@ -79,26 +100,41 @@ Type ofxMSAFluidSolver
 	Method getColorDiffusion:Float()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method enableRGB:ofxMSAFluidSolver(isRGB:Int)
 		bmx_ofx_ofxmsafluidsolver_enablergb(solverPtr, isRGB)
 		Return Self
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setDeltaT:ofxMSAFluidSolver(dt:Float = FLUID_DEFAULT_DT)
 		bmx_ofx_ofxmsafluidsolver_setdeltat(solverPtr, dt)
 		Return Self
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setFadeSpeed:ofxMSAFluidSolver(fadeSpeed:Float = FLUID_DEFAULT_FADESPEED)
 		bmx_ofx_ofxmsafluidsolver_setfadespeed(solverPtr, fadeSpeed)
 		Return Self
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setSolverIterations:ofxMSAFluidSolver(solverIterations:Int = FLUID_DEFAULT_SOLVER_ITERATIONS)
 		bmx_ofx_ofxmsafluidsolver_setsolveriterations(solverPtr, solverIterations)
 		Return Self
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method enableVorticityConfinement:ofxMSAFluidSolver(value:Int)
 		bmx_ofx_ofxmsafluidsolver_enablevorticityconfinement(solverPtr, value)
 		Return Self
@@ -107,6 +143,9 @@ Type ofxMSAFluidSolver
 	Method getVorticityConfinement:Int()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setWrap:ofxMSAFluidSolver(bx:Int, by:Int )
 		bmx_ofx_ofxmsafluidsolver_setwrap(solverPtr, bx, by)
 		Return Self
@@ -121,26 +160,44 @@ Type ofxMSAFluidSolver
 	Method getAvgSpeed:Float()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method r:Float Ptr()
 		Return bmx_ofx_ofxmsafluidsolver_r(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method g:Float Ptr()
 		Return bmx_ofx_ofxmsafluidsolver_g(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method b:Float Ptr()
 		Return bmx_ofx_ofxmsafluidsolver_b(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method u:Float Ptr()
 		Return bmx_ofx_ofxmsafluidsolver_u(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method v:Float Ptr()
 		Return bmx_ofx_ofxmsafluidsolver_v(solverPtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method Free()
 		If solverPtr Then
 			bmx_ofx_ofxmsafluidsolver_free(solverPtr)
