@@ -24,8 +24,7 @@ Type TTestApp Extends ofBaseApp
 		counter = 0.0
 		spin	= 0.0
 		spinPct	= 0.0
-		'MouseX  = 263
-		'MouseY  = 267
+
 		firstMouseMove = True
 
 		' set background To black
@@ -55,38 +54,6 @@ Type TTestApp Extends ofBaseApp
 		'total rotation- by spinPct
 		spin :+ spinPct
 
-
-
-
-		' ----------------------------------------
-		' TODO : THIS SECTION BELONGS IN mouseMoved() method
-		Local mx:Int = MouseX()
-		Local my:Int = MouseY()
-
-		' update spinPct by the distance the mouse
-		' moved in x and y. We use abs so it always
-		' spins in the same direction
-	
-		'  we use the "bFirstMouseMove" flag so that we calculate only
-		'  after we have the first prevMY and prevMX stored
-	
-		if not firstMouseMove then
-			spinPct :+ abs( my - prevMY ) * 0.03
-			spinPct :+ abs( mx - prevMX ) * 0.03
-		else
-			firstMouseMove = false
-			' turn the flag off
-		end if
-	
-		' store the x and y
-		' so we can get the prev value
-		' next time the mouse is moved
-		prevMY = my
-		prevMX = mx
-
-		' ----------------------------------------
-
-
 		If KeyHit(key_escape) Then
 			End
 		End If
@@ -94,9 +61,6 @@ Type TTestApp Extends ofBaseApp
 	
 	Method draw()
 	
-		Local mx:Int = MouseX()
-		Local my:Int = MouseY()
-
 		' Lets enable blending!
 		' We are going to use a blend mode that adds
 		' all the colors to white.
@@ -194,8 +158,8 @@ Type TTestApp Extends ofBaseApp
 			' to affect the x and y paramters of
 			' the curve. These values are quite
 			' large, so we scale them down by 0.0001
-			Local xPct:Float = (i * mx) * 0.0057
-			Local yPct:Float = (i * my) * 0.0057
+			Local xPct:Float = (i * prevMX) * 0.0057
+			Local yPct:Float = (i * prevMY) * 0.0057
 	
 			' lets also use the spin from the
 			' rgb circles to transform the curve
@@ -241,5 +205,28 @@ Type TTestApp Extends ofBaseApp
 
 	End Method
 
+	Method mouseMoved(x:Int, y:Int)
+		' update spinPct by the distance the mouse
+		' moved in x and y. We use abs so it always
+		' spins in the same direction
+	
+		'  we use the "bFirstMouseMove" flag so that we calculate only
+		'  after we have the first prevMY and prevMX stored
+	
+		If Not firstMouseMove Then
+			spinPct :+ Abs( y - prevMY ) * 0.03
+			spinPct :+ Abs( x - prevMX ) * 0.03
+		Else
+			firstMouseMove = False
+			' turn the flag off
+		End If
+	
+		' store the x and y
+		' so we can get the prev value
+		' next time the mouse is moved
+		prevMY = y
+		prevMX = x
+	End Method
+	
 End Type
 

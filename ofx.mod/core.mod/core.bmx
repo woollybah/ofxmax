@@ -93,6 +93,7 @@ bbdoc:
 End Rem
 Function ofSetupOpenGL(window:ofAppBaseWindow, w:Int, h:Int, screenMode:Int)
 	bmx_of_ofsetupopengl(window.windowPtr, w, h, screenMode)
+	ofSetBackgroundAuto(False)
 End Function
 
 Rem
@@ -104,6 +105,7 @@ Type ofBaseApp
 
 	Method New()
 		appPtr = bmx_of_ofbaseapp_new(Self)
+		AddHook EmitEventHook,Hook,Self,0
 	End Method
 
 	Rem
@@ -189,6 +191,68 @@ Type ofBaseApp
 	End Function
 	
 	
+	
+	Global keyStates:Int[256],keyHits:Int[256]
+	Global mouseStates:Int[4],mouseHits:Int[4],mouseLocation:Int[4]
+	Global mouseState:Int, lastMouseDown:Int
+	Global charGet:Int,charPut:Int,charQueue:Int[256]
+	
+	Function Hook:Object( id:Int,data:Object,context:Object )
+	
+		Local ev:TEvent=TEvent(data)
+		If Not ev Return data
+		
+		Select ev.id
+		Case EVENT_KEYDOWN
+			If Not keyStates[ev.data]
+				keyStates[ev.data]=1
+				keyHits[ev.data]:+1
+				
+				bmx_of_ofbaseapp_keypressed(ofBaseApp(context).appPtr, ev.data)
+			EndIf
+		Case EVENT_KEYUP
+			keyStates[ev.data]=0
+			
+			bmx_of_ofbaseapp_keyreleased(ofBaseApp(context).appPtr, ev.data)
+		Case EVENT_KEYCHAR
+			If charPut-charGet<256
+				charQueue[charPut & 255]=ev.data
+				charPut:+1
+			EndIf
+		Case EVENT_MOUSEDOWN
+			If Not mouseStates[ev.data]
+				mouseStates[ev.data]=1
+				mouseHits[ev.data]:+1
+
+				mouseState :| (1 Shl ev.data)
+				lastMouseDown = ev.data
+
+				bmx_of_ofbaseapp_mousepressed(ofBaseApp(context).appPtr, ev.data, ev.x, ev.y)
+			EndIf
+		Case EVENT_MOUSEUP
+			mouseStates[ev.data]=0
+
+			mouseState :~ (1 Shl ev.data)
+
+			bmx_of_ofbaseapp_mousereleased(ofBaseApp(context).appPtr, ev.data, ev.x, ev.y)
+		Case EVENT_MOUSEMOVE
+			mouseLocation[0]=ev.x
+			mouseLocation[1]=ev.y
+			
+			If mouseState > 0 Then
+				bmx_of_ofbaseapp_mousedragged(ofBaseApp(context).appPtr, ev.x, ev.y, lastMouseDown)
+			Else
+				bmx_of_ofbaseapp_mousemoved(ofBaseApp(context).appPtr, ev.x, ev.y)
+			End If
+			
+		Case EVENT_MOUSEWHEEL
+			mouseLocation[2]:+ev.data
+		End Select
+	
+		Return data
+	
+	End Function
+
 End Type
 
 Rem

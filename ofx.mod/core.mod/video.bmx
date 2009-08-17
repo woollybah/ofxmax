@@ -189,6 +189,10 @@ bbdoc: Loads in a movie file, and offers various controls to play the movie, con
 End Rem
 Type ofVideoPlayer Extends ofBaseVideo
 
+	Method New()
+		videoPtr = bmx_of_ofvideoplayer_new()
+	End Method
+
 	Rem
 	bbdoc: Returns a pointer to the array of pixels that are RGB (width*height*3).
 	about: For example, to get the red green and blue of the pixel (100,20):

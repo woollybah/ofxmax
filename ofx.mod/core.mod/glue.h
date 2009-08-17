@@ -53,10 +53,23 @@ extern "C" {
 	void _ofx_core_ofAppBaseWindow__hideCursor(BBObject * window);
 	void _ofx_core_ofAppBaseWindow__showCursor(BBObject * window);
 
+	void _ofx_core_ofBaseApp__keyPressed(BBObject * app, int key);
+	void _ofx_core_ofBaseApp__keyReleased(BBObject * app, int key);
+	void _ofx_core_ofBaseApp__mousePressed(BBObject * app, int x, int y, int button);
+	void _ofx_core_ofBaseApp__mouseReleased(BBObject * app, int x, int y, int button);
+	void _ofx_core_ofBaseApp__mouseMoved(BBObject * app, int x, int y);
+	void _ofx_core_ofBaseApp__mouseDragged(BBObject * app, int x, int y, int button);
+
 	void bmx_of_ofrunapp(ofBaseApp * app);
 	void bmx_of_ofsetupopengl(ofAppBaseWindow * window, int w, int h, int screenMode);
 
 	MaxofApp * bmx_of_ofbaseapp_new(BBObject * handle);
+	void bmx_of_ofbaseapp_keypressed(MaxofApp * app, int key);
+	void bmx_of_ofbaseapp_keyreleased(MaxofApp * app, int key);
+	void bmx_of_ofbaseapp_mousepressed(MaxofApp * app, int button, int x, int y);
+	void bmx_of_ofbaseapp_mousereleased(MaxofApp * app, int button, int x, int y);
+	void bmx_of_ofbaseapp_mousedragged(MaxofApp * app, int x, int y, int buttonInUse);
+	void bmx_of_ofbaseapp_mousemoved(MaxofApp * app, int x, int y);
 
 	ofVideoGrabber * bmx_of_ofvideograbber_new();
 	int bmx_of_ofvideograbber_initgrabber(ofVideoGrabber * grab, int w, int h, int texture);
@@ -165,6 +178,7 @@ extern "C" {
 	int bmx_ofx_oftruetypefont_countcharacters(ofTrueTypeFont * font);
 	void bmx_ofx_oftruetypefont_free(ofTrueTypeFont * font);
 
+	ofVideoPlayer * bmx_of_ofvideoplayer_new();
 	unsigned char * bmx_of_ofvideoplayer_getpixels(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_close(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_update(ofVideoPlayer * player);
