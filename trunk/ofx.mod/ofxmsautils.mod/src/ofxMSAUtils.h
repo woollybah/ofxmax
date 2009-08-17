@@ -12,46 +12,212 @@
  *     * Redistributions in binary form must reproduce the above copyright
  *       notice, this list of conditions and the following disclaimer in the
  *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of MSA Visuals nor the names of its contributors 
+ *     * Neither the name of MSA Visuals nor the names of its contributors
  *       may be used to endorse or promote products derived from this software
  *       without specific prior written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, 
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+ * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
  * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
  * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
  * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS 
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
  * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
- * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+ * OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE. 
+ * OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * ***********************************************************************/ 
+ * ***********************************************************************/
 
 #pragma once
 
 #include "ofMain.h"
+//#include "ofxMSADataProtector.h"
+
+#ifdef OFX_DIRLIST
+#include "ofxDirList.h"
+#endif
+
+#define msaDelPointer(p)	if(p) { delete p; p = NULL; }
+#define msaDelArray(p)		if(p) { delete []p; p = NULL; }
 
 void msaClear();
+
+void msaDrawFPS();
+void msaDrawFPS(int x, int y);
+void msaDrawFPS(int color);
+
+void msaDumpFPS(float seconds);
+
+void msaSetCursor(bool forceOn = false);
 
 void msaConstrain(float &pos, float &vel, float min, float max, float bounce = 1);
 void msaConstrain(ofPoint &pos, ofPoint &vel, ofPoint &min, ofPoint &max, float bounce = 1);
 
-void msaDrawFPS();
-void msaDrawFPS(int x, int y);	
-void msaDrawFPS(int color);	
+inline void msaDrawQuadAtCorner();
+inline void msaDrawQuadAtCenter();
 
-void msaSetCursor(bool forceOn = false);
+inline void msaDrawTexture(GLuint texId, GLenum textureTarget = GL_TEXTURE_2D);
 
-void msaDrawQuadAtCorner();
-void msaDrawQuadAtCenter();
+// returns always positive modulo
+inline int msaMod(int dividend, int divisor) {
+	dividend %= divisor;
+	if(dividend<0) dividend += divisor;
+	return dividend;
+}
 
-void msaDrawTexture(GLuint texId, GLenum textureTarget = GL_TEXTURE_2D);
 
 
+/***************************************************************/
+
+struct msaParam {
+	float current;
+	float target;
+	float lerpSpeed;
+	
+	msaParam() {
+		lerpSpeed = 0.1;
+	}
+	
+	void setCurrent(float f) {
+		current = f;
+	}
+	
+	void setTarget(float f) {
+		target = f;
+	}
+	
+	void set(float f) {
+		current = target = f;
+	}
+	
+	void setSpeed(float f) {
+		lerpSpeed = f;
+	}
+	
+	void snapToTarget() {
+		current = target;
+	}
+	
+	void update(float thresh = 0) { //0.001f) {
+		float diff = target - current;
+		diff *= lerpSpeed;
+		if(thresh == 0) {
+			current += diff;
+		} else {
+			if(current!=0) {		// avoid divide by zero
+				if(fabs(diff/current) > thresh) current += diff;	// if change is bigger than % then lerp
+			} else {				// if current is zero
+				if(target !=0 && fabs(diff/target) > thresh) current += diff;	// if change is bigger than % then lerp
+			}
+		}
+	}
+	
+};
+
+
+/***************************************************************/
+#ifdef OFX_DIRLIST
+class msaImageManager {
+public:
+	vector<ofImage>		images;
+	int currentIndex;
+	
+	void setup(string path, const char *ext = NULL, string* md5 = NULL) {
+		currentIndex = 0;
+		ofxDirList DIR;
+		if(ext) DIR.allowExt(ext);
+		int numImages = DIR.listDir(path);
+		//		images.reserve(numImages);
+		
+		printf("msaImageManager::setup( %s ) | %i files loaded\n", path.c_str(), numImages);
+		for(int i = 0; i < numImages; i++) {
+#ifdef OFX_MSADATAPROTECTOR
+			if(md5) {
+				ofxMSACheckFileMD5(DIR.getPath(i), md5[i], true);
+			} else {
+				ofxMSACheckFileMD5(DIR.getPath(i), "", false);
+			}
+#endif			
+			string filename = DIR.getPath(i);
+			printf("   loading %s\n", filename.c_str());
+			ofImage img;
+			img.loadImage(filename);
+			images.push_back(img);
+		}
+		
+		
+	}
+	
+	
+	ofImage &getCurrentImageFast() {
+		return images[currentIndex];
+	}
+	
+	
+	ofImage &getCurrentImage() {
+		if(images.size() > 0) {
+			currentIndex = msaMod(currentIndex, images.size());
+			return images[currentIndex];
+		}
+	}
+	
+	ofImage &getRandomImage() {
+		currentIndex = rand() % images.size();
+		return getCurrentImage();
+	}
+	
+	ofImage &getNextImage() {
+		currentIndex++;
+		return getCurrentImage();
+	}
+	
+	ofImage &getPrevImage() {
+		currentIndex--;
+		return getCurrentImage();
+	}
+	
+	ofImage &getImageAt(int i) {
+		currentIndex = i;
+		return getCurrentImage();
+	}
+	
+	int count() {
+		return images.size();
+	}
+	
+};
+#endif
+
+
+/***************************************************************/
+class msaImage : public ofImage {
+public:
+    ofPixels &getPixelsData() {
+        return myPixels;
+    }
+};
+
+
+
+/***************************************************************/
 class msaColor : public ofColor{
 public:
+	
+	msaColor() {
+		set(1, 1, 1, 1);
+	}
+	
+	msaColor(float r, float g, float b, float a = 1) {
+		set(r, g, b, a);
+	}
+	
+	
+    msaColor( const msaColor & col){
+		set(col.r, col.g, col.b, col.a);
+    }
+	
+	
 	
 	void set(float r, float g, float b, float a = 1) {
 		this->r = r;
@@ -95,7 +261,7 @@ public:
 		float q = v * (1 - s * f);
 		float t = v * (1 - (1 - f) * s);
 		
-		switch (i) {   
+		switch (i) {
 			case 0: set(v, t, p, a); break;
 			case 1: set(q, v, p, a); break;
 			case 2: set(p, v, t, a); break;
@@ -103,7 +269,7 @@ public:
 			case 4: set(t, p, v, a); break;
 			case 5: set(v, p, q, a); break;
 		}
-	} 
+	}
 	
 	// assumes RGB is normalized [0..1]
 	// returns H [0..360], S and V [0..1]
@@ -144,16 +310,6 @@ public:
 		if (h >= 360.) h = h-360.;
 		outHSV.set(h, s, v);
 	}
-	
-	
-	msaColor( float r=1.0f, float g=1.0f, float b=1.0f, float a=1.0f ) {
-		set(r, g, b, a);
-    }
-	
-    msaColor( const msaColor & col){
-		set(col.r, col.g, col.b, col.a);
-    }
-	
 	
 	
     //equalitg
@@ -268,6 +424,4 @@ public:
 		
 		return *this;
     }
-	
-	
 };
