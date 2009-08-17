@@ -71,8 +71,8 @@ Type GLMax2DWindow Extends ofAppBaseWindow
 	Method runAppViaInfiniteLoop(app:ofBaseApp)
 
 		If app Then
-			app.setup()
-			app.update()
+			ofBaseApp._setup(app)
+			ofBaseApp._update(app)
 		End If
 
 		While True
