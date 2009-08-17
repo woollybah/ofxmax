@@ -105,7 +105,6 @@ Type ofBaseApp
 
 	Method New()
 		appPtr = bmx_of_ofbaseapp_new(Self)
-		AddHook EmitEventHook,Hook,Self,0
 	End Method
 
 	Rem
@@ -116,6 +115,7 @@ Type ofBaseApp
 	
 	Function _setup(app:ofBaseApp)
 		app.setup()
+		AddHook EmitEventHook,Hook,app,0
 	End Function
 	
 	Rem
