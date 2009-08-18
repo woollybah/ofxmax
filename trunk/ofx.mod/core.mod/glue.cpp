@@ -887,4 +887,7 @@ void bmx_of_image_free(ofImage * image) {
 	delete image;
 }
 
+int bmx_og_image_gettype(ofImage * image) {
+	return image->type;
+}
 
