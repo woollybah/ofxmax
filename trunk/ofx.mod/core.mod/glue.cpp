@@ -795,5 +795,96 @@ void bmx_of_ofvideoplayer_free(ofVideoPlayer * player) {
 	delete player;
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+ofImage * bmx_of_image_new() {
+	return new ofImage;
+}
+
+void bmx_of_image_allocate(ofImage * image, int w, int h, int _type) {
+	image->allocate(w, h, _type);
+}
+
+void bmx_of_image_clear(ofImage * image) {
+	image->clear();
+}
+
+void bmx_of_image_setusetexture(ofImage * image, int use) {
+	image->setUseTexture(static_cast<bool>(use));
+}
+
+ofTexture * bmx_of_image_gettexturereference(ofImage * image) {
+	return &image->getTextureReference();
+}
+
+int bmx_of_image_loadimage(ofImage * image, BBString * fileName) {
+	char * f = bbStringToCString(fileName);
+	int res = static_cast<int>(image->loadImage(f));
+	bbMemFree(f);
+	return res;
+}
+
+void bmx_of_image_saveimage(ofImage * image, BBString * fileName) {
+	char * f = bbStringToCString(fileName);
+	image->saveImage(f);
+	bbMemFree(f);
+}
+
+unsigned char * bmx_of_image_getpixels(ofImage * image) {
+	return image->getPixels();
+}
+
+void bmx_of_image_setfrompixels(ofImage * image, unsigned char * pixels, int w, int h, int newType, int orderIsRGB) {
+	image->setFromPixels(pixels, w, h, newType, static_cast<bool>(orderIsRGB));
+}
+
+void bmx_of_image_setimagetype(ofImage * image, int _type) {
+	image->setImageType(_type);
+}
+
+void bmx_of_image_resize(ofImage * image, int newWidth, int newHeight) {
+	image->resize(newWidth, newHeight);
+}
+
+void bmx_of_image_grabscreen(ofImage * image, int x, int y, int w, int h) {
+	image->grabScreen(x, y, w, h);
+}
+
+void bmx_of_image_update(ofImage * image) {
+	image->update();
+}
+
+void bmx_of_image_setanchorpercent(ofImage * image, float xPct, float yPct) {
+	image->setAnchorPercent(xPct, yPct);
+}
+
+void bmx_of_image_setanchorpoint(ofImage * image, int x, int y) {
+	image->setAnchorPoint(x, y);
+}
+
+void bmx_of_image_resetanchor(ofImage * image) {
+	image->resetAnchor();
+}
+
+void bmx_of_image_draw(ofImage * image, float x, float y, float w, float h) {
+	if (w == 0 && h == 0) {
+		image->draw(x, y);
+	} else {
+		image->draw(x, y, w, h);
+	}
+}
+
+float bmx_of_image_getheight(ofImage * image) {
+	return image->getHeight();
+}
+
+float bmx_of_image_getwidth(ofImage * image) {
+	return image->getWidth();
+}
+
+void bmx_of_image_free(ofImage * image) {
+	delete image;
+}
 
 

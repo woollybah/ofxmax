@@ -212,6 +212,27 @@ extern "C" {
 	void bmx_of_ofvideoplayer_previousframe(ofVideoPlayer * player);
 	void bmx_of_ofvideoplayer_free(ofVideoPlayer * player);
 
+	ofImage * bmx_of_image_new();
+	void bmx_of_image_allocate(ofImage * image, int w, int h, int _type);
+	void bmx_of_image_clear(ofImage * image);
+	void bmx_of_image_setusetexture(ofImage * image, int use);
+	ofTexture * bmx_of_image_gettexturereference(ofImage * image);
+	int bmx_of_image_loadimage(ofImage * image, BBString * fileName);
+	void bmx_of_image_saveimage(ofImage * image, BBString * fileName);
+	unsigned char * bmx_of_image_getpixels(ofImage * image);
+	void bmx_of_image_setfrompixels(ofImage * image, unsigned char * pixels, int w, int h, int newType, int orderIsRGB);
+	void bmx_of_image_setimagetype(ofImage * image, int _type);
+	void bmx_of_image_resize(ofImage * image, int newWidth, int newHeight);
+	void bmx_of_image_grabscreen(ofImage * image, int x, int y, int w, int h);
+	void bmx_of_image_update(ofImage * image);
+	void bmx_of_image_setanchorpercent(ofImage * image, float xPct, float yPct);
+	void bmx_of_image_setanchorpoint(ofImage * image, int x, int y);
+	void bmx_of_image_resetanchor(ofImage * image);
+	void bmx_of_image_draw(ofImage * image, float x, float y, float w, float h);
+	float bmx_of_image_getheight(ofImage * image);
+	float bmx_of_image_getwidth(ofImage * image);
+	void bmx_of_image_free(ofImage * image);
+
 	
 }
 

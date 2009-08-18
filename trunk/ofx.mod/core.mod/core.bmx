@@ -71,6 +71,7 @@ Import "truetypefont.bmx"
 Import "video.bmx"
 Import "utils.bmx"
 Import "common.bmx"
+Import "image.bmx"
 
 '
 ' BUILD NOTES :

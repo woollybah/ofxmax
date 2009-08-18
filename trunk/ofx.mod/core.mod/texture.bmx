@@ -34,6 +34,10 @@ Type ofTexture
 
 	Field texturePtr:Byte Ptr
 	
+	Function _create:ofTexture(texturePtr:Byte Ptr)
+	' TODO
+	End Function
+	
 	Method New()
 		texturePtr = bmx_of_oftexture_new()
 	End Method
