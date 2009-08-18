@@ -5,11 +5,11 @@
 #include "ofTexture.h"
 #include "ofGraphics.h"
 #include "ofAppRunner.h"		// for height()
-#ifdef TARGET_WIN32
-    #include "FreeImage_win32.h"
-#else
+//#ifdef TARGET_WIN32
+//    #include "FreeImage_win32.h"
+//#else
     #include "FreeImage.h"
-#endif
+//#endif
 #include "ofUtils.h"
 
 typedef struct {

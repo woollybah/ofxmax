@@ -232,7 +232,7 @@ extern "C" {
 	float bmx_of_image_getheight(ofImage * image);
 	float bmx_of_image_getwidth(ofImage * image);
 	void bmx_of_image_free(ofImage * image);
-
+	int bmx_og_image_gettype(ofImage * image);
 	
 }
 

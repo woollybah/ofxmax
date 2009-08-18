@@ -247,6 +247,7 @@ Extern
 	Function bmx_of_image_getheight:Float(handle:Byte Ptr)
 	Function bmx_of_image_getwidth:Float(handle:Byte Ptr)
 	Function bmx_of_image_free(handle:Byte Ptr)
+	Function bmx_og_image_gettype:Int(handle:Byte Ptr)
 
 End Extern
 
@@ -257,3 +258,13 @@ Const OF_GAME_MODE:Int = 2
 
 Const CIRC_RESOLUTION:Int = 22 ' 22 pts For a circle...
 
+Const OF_RECTMODE_CORNER:Int = 0
+Const OF_RECTMODE_CENTER:Int = 1
+
+Const OF_IMAGE_GRAYSCALE:Int = $00
+Const OF_IMAGE_COLOR:Int = $01
+Const OF_IMAGE_COLOR_ALPHA:Int = $02
+Const OF_IMAGE_UNDEFINED:Int = $03
+
+Const OF_MAX_STYLE_HISTORY:Int = 32
+Const OF_MAX_CIRCLE_PTS:Int = 1024
