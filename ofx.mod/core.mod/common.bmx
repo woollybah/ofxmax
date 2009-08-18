@@ -227,6 +227,27 @@ Extern
 	Function bmx_of_ofvideoplayer_previousframe(handle:Byte Ptr)
 	Function bmx_of_ofvideoplayer_free(handle:Byte Ptr)
 
+	Function bmx_of_image_new:Byte Ptr()
+	Function bmx_of_image_allocate(handle:Byte Ptr, w:Int, h:Int, _type:Int)
+	Function bmx_of_image_clear(handle:Byte Ptr)
+	Function bmx_of_image_setusetexture(handle:Byte Ptr, use:Int)
+	Function bmx_of_image_gettexturereference:Byte Ptr(handle:Byte Ptr)
+	Function bmx_of_image_loadimage:Int(handle:Byte Ptr, fileName:String)
+	Function bmx_of_image_saveimage(handle:Byte Ptr, fileName:String)
+	Function bmx_of_image_getpixels:Byte Ptr(handle:Byte Ptr)
+	Function bmx_of_image_setfrompixels(handle:Byte Ptr, pixels:Byte Ptr, w:Int, h:Int, newType:Int, orderIsRGB:Int)
+	Function bmx_of_image_setimagetype(handle:Byte Ptr, _type:Int)
+	Function bmx_of_image_resize(handle:Byte Ptr, newWidth:Int, newHeight:Int)
+	Function bmx_of_image_grabscreen(handle:Byte Ptr, x:Int, y:Int, w:Int, h:Int)
+	Function bmx_of_image_update(handle:Byte Ptr)
+	Function bmx_of_image_setanchorpercent(handle:Byte Ptr, xPct:Float, yPct:Float)
+	Function bmx_of_image_setanchorpoint(handle:Byte Ptr, x:Int, y:Int)
+	Function bmx_of_image_resetanchor(handle:Byte Ptr)
+	Function bmx_of_image_draw(handle:Byte Ptr, x:Float, y:Float, w:Float, h:Float)
+	Function bmx_of_image_getheight:Float(handle:Byte Ptr)
+	Function bmx_of_image_getwidth:Float(handle:Byte Ptr)
+	Function bmx_of_image_free(handle:Byte Ptr)
+
 End Extern
 
 
