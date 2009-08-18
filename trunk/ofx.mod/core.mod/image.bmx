@@ -27,6 +27,9 @@ SuperStrict
 
 Import "texture.bmx"
 
+Rem
+bbdoc: 
+End Rem
 Type ofImage
 	
 	Field imagePtr:Byte Ptr
@@ -35,22 +38,37 @@ Type ofImage
 		imagePtr = bmx_of_image_new()
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method allocate(w:Int, h:Int, _type:Int = OF_IMAGE_COLOR_ALPHA)
 		bmx_of_image_allocate(imagePtr, w, h, _type)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method clear()
 		bmx_of_image_clear(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setUseTexture(use:Int)
 		bmx_of_image_setusetexture(imagePtr, use)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getTextureReference:ofTexture()
 		Return ofTexture._create(bmx_of_image_gettexturereference(imagePtr))
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method LoadImage:Int(fileName:String, _type:Int = OF_IMAGE_COLOR_ALPHA)
 		Local ret:Int = bmx_of_image_loadimage(imagePtr, fileName)
 		If ret Then
@@ -60,63 +78,107 @@ Type ofImage
 		Return ret
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method saveImage(fileName:String)
 		bmx_of_image_saveimage(imagePtr, fileName)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getPixels:Byte Ptr()
 		Return bmx_of_image_getpixels(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setFromPixels(pixels:Byte Ptr, w:Int, h:Int, newType:Int, orderIsRGB:Int = True)
 		bmx_of_image_setfrompixels(imagePtr, pixels, w, h, newType, orderIsRGB)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setImageType(_type:Int)
 		bmx_of_image_setimagetype(imagePtr, _type)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method resize(newWidth:Int, newHeight:Int)
 		bmx_of_image_resize(imagePtr, newWIdth, newHeight)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method grabScreen(x:Int, y:Int, w:Int, h:Int)
 		bmx_of_image_grabscreen(imagePtr, x, y, w, h)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method update()
 		bmx_of_image_update(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setAnchorPercent(xPct:Float, yPct:Float)
 		bmx_of_image_setanchorpercent(imagePtr, xPct, yPct)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method setAnchorPoint(x:Int, y:Int)
 		bmx_of_image_setanchorpoint(imagePtr, x, y)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method resetAnchor()
 		bmx_of_image_resetanchor(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method draw(x:Float, y:Float, w:Float = 0, h:Float = 0)
 		bmx_of_image_draw(imagePtr, x, y, w, h)
 	End Method
 
-
+	Rem
+	bbdoc: 
+	End Rem
 	Method getHeight:Float()
 		Return bmx_of_image_getheight(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getWidth:Float()
 		Return bmx_of_image_getwidth(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method getType:Int()
 		Return bmx_og_image_gettype(imagePtr)
 	End Method
 	
+	Rem
+	bbdoc: 
+	End Rem
 	Method copy(src:ofImage, sx:Int, sy:Int, sw:Int, sh:Int, dx:Int, dy:Int, dw:Int, dh:Int, _mode:Int = 0)
 		If getType() <> OF_IMAGE_COLOR_ALPHA Or src.getType() <> OF_IMAGE_COLOR_ALPHA Then
 			DebugLog "Both images must be 32-bit"

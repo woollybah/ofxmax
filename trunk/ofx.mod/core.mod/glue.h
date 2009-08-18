@@ -233,7 +233,11 @@ extern "C" {
 	float bmx_of_image_getwidth(ofImage * image);
 	void bmx_of_image_free(ofImage * image);
 	int bmx_og_image_gettype(ofImage * image);
-	
+
+	int bmx_ofx_ofGetElapsedTimeMillis();
+	float bmx_ofx_ofGetElapsedTimef();
+	void bmx_ofx_ofResetElapsedTimeCounter();
+
 }
 
 
