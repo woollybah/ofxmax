@@ -891,3 +891,16 @@ int bmx_og_image_gettype(ofImage * image) {
 	return image->type;
 }
 
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+int bmx_ofx_ofGetElapsedTimeMillis() {
+	return ofGetElapsedTimeMillis();
+}
+
+float bmx_ofx_ofGetElapsedTimef() {
+	return ofGetElapsedTimef();
+}
+
+void bmx_ofx_ofResetElapsedTimeCounter() {
+	ofResetElapsedTimeCounter();
+}

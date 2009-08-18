@@ -547,8 +547,8 @@ bool ofImage::loadImageIntoPixels(string fileName, ofPixels &pix){
 		// anyone game?
 		//
 
-		#ifdef TARGET_LITTLE_ENDIAN
-			if (byteCount != 1) swapRgb(pix);
+		#ifndef __APPLE__
+			if (byteCount != 1) swapRgb(pix); // BaH
 		#endif
 		//------------------------------------------
 

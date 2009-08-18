@@ -5,7 +5,7 @@ Import brl.glmax2d
 
 
 Local window:GLMax2DWindow = New GLMax2DWindow
-ofSetupOpenGL(window, 640, 360, OF_WINDOW)
+ofSetupOpenGL(window, 640, 480, OF_WINDOW)
 
 ofRunApp(New TTestApp)
 
@@ -28,7 +28,7 @@ Type TTestApp Extends ofBaseApp
 		' Load background image
 		lensEffect = New ofImage
 		lensEffect.LoadImage("data/red_smoke.jpg")
-		lensEffect.resize(640, 360)
+		lensEffect.resize(640, 480)
 		
 		' Create buffered image for image to warp
 		lensImage = New ofImage

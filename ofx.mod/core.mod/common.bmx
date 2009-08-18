@@ -249,6 +249,10 @@ Extern
 	Function bmx_of_image_free(handle:Byte Ptr)
 	Function bmx_og_image_gettype:Int(handle:Byte Ptr)
 
+	Function bmx_ofx_ofGetElapsedTimeMillis:Int()
+	Function bmx_ofx_ofGetElapsedTimef:Float()
+	Function bmx_ofx_ofResetElapsedTimeCounter()
+
 End Extern
 
 
@@ -268,3 +272,16 @@ Const OF_IMAGE_UNDEFINED:Int = $03
 
 Const OF_MAX_STYLE_HISTORY:Int = 32
 Const OF_MAX_CIRCLE_PTS:Int = 1024
+
+Const OF_POLY_WINDING_ODD:Int = 100130
+Const OF_POLY_WINDING_NONZERO:Int = 100131
+Const OF_POLY_WINDING_POSITIVE:Int = 100132
+Const OF_POLY_WINDING_NEGATIVE:Int = 100133
+Const OF_POLY_WINDING_ABS_GEQ_TWO:Int = 100134
+
+
+Const TWO_PI:Double = 6.28318530717958647693:Double
+Const M_TWO_PI:Double = 6.28318530717958647693:Double
+Const FOUR_PI:Double = 12.56637061435917295385:Double
+Const HALF_PI:Double = 1.57079632679489661923:Double
+Const RAD_TO_DEG:Float = 57.2957795
