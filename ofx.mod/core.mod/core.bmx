@@ -80,8 +80,8 @@ Import "image.bmx"
 '   Removed references to ofAppGlutWindow since we don't want to require the dll for Win32.
 ' ofImage.cpp
 '   swapRGB doesn't need to be called on Mac.
-' ofTexture.cpp
-'   texture must be flipped for BlitzMax.
+' ofImage.cpp
+'   image must be flipped for BlitzMax.
 '
 
 Rem
