@@ -537,7 +537,7 @@ bool ofImage::loadImageIntoPixels(string fileName, ofPixels &pix){
 		// call the allocation routine (which checks if really need to allocate) here:
 		allocatePixels(pix, width, height, bpp);
 
-
+FreeImage_FlipVertical(bmp); // BaH : we need to flip this or it appears upside down!
 
 		FreeImage_ConvertToRawBits(pix.pixels, bmp, width*byteCount, bpp, FI_RGBA_RED_MASK, FI_RGBA_GREEN_MASK, FI_RGBA_BLUE_MASK, false);  // get bits
 
