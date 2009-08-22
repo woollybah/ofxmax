@@ -904,3 +904,54 @@ float bmx_ofx_ofGetElapsedTimef() {
 void bmx_ofx_ofResetElapsedTimeCounter() {
 	ofResetElapsedTimeCounter();
 }
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+float bmx_of_ofNormalize(float value, float _min, float _max) {
+	return ofNormalize(value, _min, _max);
+}
+
+float bmx_of_ofMap(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
+	return ofMap(value, inputMin, inputMax, outputMin, outputMax);
+}
+
+float bmx_of_ofClamp(float value, float _min, float _max) {
+	return ofClamp(value, _min, _max);
+}
+
+float bmx_of_ofLerp(float start, float stop, float amt) {
+	return ofLerp(start, stop, amt);
+}
+
+float bmx_of_ofDist(float x1, float y1, float x2, float y2) {
+	return ofDist(x1, y1, x2, y2);
+}
+
+float bmx_of_ofDistSquared(float x1, float y1, float x2, float y2) {
+	return ofDistSquared(x1, y1, x2, y2);
+}
+
+int bmx_of_ofSign(float n) {
+	return ofSign(n);
+}
+
+int bmx_of_ofInRange(float t, float _min, float _max) {
+	return ofInRange(t, _min, _max);
+}
+
+float bmx_of_ofRadToDeg(float radians) {
+	return ofRadToDeg(radians);
+}
+
+float bmx_of_ofDegToRad(float degrees) {
+	return ofDegToRad(degrees);
+}
+
+float bmx_of_ofRandomWidth() {
+	return ofRandomWidth();
+}
+
+float bmx_of_ofRandomHeight() {
+	return ofRandomHeight();
+}
+

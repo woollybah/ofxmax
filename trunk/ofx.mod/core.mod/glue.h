@@ -238,6 +238,20 @@ extern "C" {
 	float bmx_ofx_ofGetElapsedTimef();
 	void bmx_ofx_ofResetElapsedTimeCounter();
 
+	float bmx_of_ofNormalize(float value, float _min, float _max);
+	float bmx_of_ofMap(float value, float inputMin, float inputMax, float outputMin, float outputMax);
+	float bmx_of_ofClamp(float value, float _min, float _max);
+	float bmx_of_ofLerp(float start, float stop, float amt);
+	float bmx_of_ofDist(float x1, float y1, float x2, float y2);
+	float bmx_of_ofDistSquared(float x1, float y1, float x2, float y2);
+	int bmx_of_ofSign(float n);
+	int bmx_of_ofInRange(float t, float _min, float _max);
+	float bmx_of_ofRadToDeg(float radians);
+	float bmx_of_ofDegToRad(float degrees);
+	float bmx_of_ofRandomWidth();
+	float bmx_of_ofRandomHeight();
+	
+
 }
 
 

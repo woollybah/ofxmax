@@ -72,6 +72,8 @@ Import "video.bmx"
 Import "utils.bmx"
 Import "common.bmx"
 Import "image.bmx"
+Import "noise.bmx"
+Import "math.bmx"
 
 '
 ' BUILD NOTES :
@@ -82,6 +84,9 @@ Import "image.bmx"
 '   swapRGB doesn't need to be called on Mac.
 ' ofImage.cpp
 '   image must be flipped for BlitzMax.
+'
+' video/ofUCUtils.cpp
+'   commented out two includes for Linux build.
 '
 
 Rem
