@@ -253,8 +253,20 @@ Extern
 	Function bmx_ofx_ofGetElapsedTimef:Float()
 	Function bmx_ofx_ofResetElapsedTimeCounter()
 
-End Extern
+	Function bmx_of_ofNormalize:Float(value:Float, _min:Float, _max:Float)
+	Function bmx_of_ofMap:Float(value:Float, inputMin:Float, inputMax:Float, outputMin:Float, outputMax:Float)
+	Function bmx_of_ofClamp:Float(value:Float, _min:Float, _max:Float)
+	Function bmx_of_ofLerp:Float(start:Float, stop:Float, amt:Float)
+	Function bmx_of_ofDist:Float(x1:Float, y1:Float, x2:Float, y2:Float)
+	Function bmx_of_ofDistSquared:Float(x1:Float, y1:Float, x2:Float, y2:Float)
+	Function bmx_of_ofSign:Int(n:Float)
+	Function bmx_of_ofInRange:Int(t:Float, _min:Float, _max:Float)
+	Function bmx_of_ofRadToDeg:Float(radians:Float)
+	Function bmx_of_ofDegToRad:Float(degrees:Float)
+	Function bmx_of_ofRandomWidth:Float()
+	Function bmx_of_ofRandomHeight:Float()
 
+End Extern
 
 Const OF_WINDOW:Int = 0
 Const OF_FULLSCREEN:Int = 1

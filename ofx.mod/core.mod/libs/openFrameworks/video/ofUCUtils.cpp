@@ -16,8 +16,8 @@
 // to avoid the warnings
 extern "C"
 {
-#include <avformat.h>
-#include <swscale.h>
+//#include <avformat.h>
+//#include <swscale.h>
 #include <libavformat/avformat.h>
 #include <libswscale/swscale.h>
 }
