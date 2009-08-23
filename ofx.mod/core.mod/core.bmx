@@ -58,7 +58,7 @@ ModuleInfo "LD_OPTS: %PWD%/libs/quicktime/Libraries/QTSClient.lib"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/dx/lib/"
 ?linux
 ModuleInfo "LD_OPTS: -L%PWD%/libs/poco/lib/linux/"
-ModuleInfo "LD_OPTS: -L%PWD%/libs/GLee/lib/linux/"
+ModuleInfo "LD_OPTS: %PWD%/libs/GLee/lib/linux/libGLee.a"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/rtAudio/lib/linux/"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/unicap/lib"
 ModuleInfo "LD_OPTS: -L%PWD%/libs/gstappsink/lib"
