@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <cstdlib>
 #include "ofUtils.h"
 
 
