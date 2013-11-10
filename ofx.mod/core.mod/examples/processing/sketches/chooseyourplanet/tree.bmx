@@ -1,6 +1,6 @@
 SuperStrict
 
-Import brl.random
+Import BaH.random
 Import "planet.bmx"
 
 Type Tree Extends Displayable

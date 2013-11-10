@@ -1,6 +1,6 @@
 SuperStrict
 
-Import brl.random
+Import BaH.Random
 Import "planet.bmx"
 
 Type Building Extends Displayable
