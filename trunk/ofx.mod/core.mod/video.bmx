@@ -364,9 +364,9 @@ Type ofVideoPlayer Extends ofBaseVideo
 	bbdoc: Sets the looping state of the movie.
 	about: Deafult behavior is to loop. There are three options:
 	<ul>
-	<li>OF_QT_LOOP_NONE - don't loop, the movie will stop when it gets to the last frame (or first frame, if playing backwards)</li>
-	<li>OF_QT_LOOP_NORMAL - loop normally (the last frame loops to the first frame)</li>
-	<li>OF_QT_LOOP_PALINDROME - loop back and forth</li>
+	<li>OF_LOOP_NONE - don't loop, the movie will stop when it gets to the last frame (or first frame, if playing backwards)</li>
+	<li>OF_LOOP_NORMAL - loop normally (the last frame loops to the first frame)</li>
+	<li>OF_LOOP_PALINDROME - loop back and forth</li>
 	</ul>
 	End Rem
 	Method setLoopState(state:Int)
