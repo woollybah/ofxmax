@@ -8,7 +8,7 @@ SuperStrict
 
 Framework ofx.ofxglmax2d
 Import brl.glmax2d
-Import brl.random
+Import bah.random
 
 Import "planet.bmx"
 Import "imagebutton.bmx"
